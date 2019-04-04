@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Resizer : MonoBehaviour
 {
-    private Vector3 currentScale = new Vector3(0.05f, 0.05f);
+    private Vector3 currentScale = new Vector3(1f, 1f);
     
     
     
@@ -18,13 +18,13 @@ public class Resizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             currentScale.x = currentScale.x + 0.01f;
             currentScale.y = currentScale.y + 0.01f;
             transform.localScale = currentScale;
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.DownArrow))
         {
             currentScale.x = currentScale.x - 0.01f;
             currentScale.y = currentScale.y - 0.01f;
