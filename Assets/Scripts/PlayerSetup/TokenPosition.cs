@@ -6,7 +6,7 @@ namespace PlayerSetup
     {
         private Vector3[] _tokenPositions = new Vector3[8];
 
-        private GameObject _tokens;
+        public GameObject[] tokens = new GameObject[8];
         
         // Start is called before the first frame update
         void Start()
@@ -25,7 +25,7 @@ namespace PlayerSetup
 
             for (int n = 0; n < 8; n++)
             {
-                _tokens.transform.GetChild(n).position = _tokenPositions[n];
+                tokens[n].transform.position = _tokenPositions[n];
             }
         }
     }
