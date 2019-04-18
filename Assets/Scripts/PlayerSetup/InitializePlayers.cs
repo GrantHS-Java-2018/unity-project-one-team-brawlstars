@@ -1,24 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PlayerSetup
 {
-    public class TokenClickDetector : MonoBehaviour
-    {   
-        void Start()
-        {
-            gameObject.SetActive(false);
-        }
-        
+    public class InitializePlayers : MonoBehaviour
+    {
         private void OnMouseOver()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                gameObject.SetActive(false);
-                
                 
             }
+        }
+
+        void Start()
+        {
+          
         }
     }
 }
