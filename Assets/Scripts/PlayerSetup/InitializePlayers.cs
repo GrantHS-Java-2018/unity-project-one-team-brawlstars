@@ -7,14 +7,6 @@ namespace PlayerSetup
 {
     public class InitializePlayers : MonoBehaviour
     {
-        private void OnMouseOver()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                
-            }
-        }
-
         void Start()
         {
           
