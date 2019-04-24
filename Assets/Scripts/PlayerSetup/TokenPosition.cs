@@ -28,5 +28,13 @@ namespace PlayerSetup
                 tokens[n].transform.position = _tokenPositions[n];
             }
         }
+
+        public void SetTokenActives(bool active)
+        {
+            for (int n = 0; n < 8; n++)
+            {
+                tokens[n].SetActive(active);
+            }
+        }
     }
 }
