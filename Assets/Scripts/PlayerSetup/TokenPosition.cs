@@ -13,13 +13,13 @@ namespace PlayerSetup
         {
             for (int n = 0; n < 4; n++)
             {
-                Vector3 tempPosition = new Vector3( -12f + n * 8f, 5f, 0f);
+                Vector3 tempPosition = new Vector3( -768f + n * 512f, 450f, 0f);
                 _tokenPositions[n] = tempPosition;
             }
 
             for (int n = 4; n < 8; n++)
             {
-                Vector3 tempPosition = new Vector3( -12f + (n - 4) * 8f, -1f, 0f);
+                Vector3 tempPosition = new Vector3( -768f + (n - 4) * 512f, -100f, 0f);
                 _tokenPositions[n] = tempPosition;
             }
 
