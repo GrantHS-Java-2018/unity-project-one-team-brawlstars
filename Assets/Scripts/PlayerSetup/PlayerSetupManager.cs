@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 namespace PlayerSetup
 {
-    public class PlayerInitialization : MonoBehaviour
+    public class PlayerSetupManager : MonoBehaviour
     {
+        [SerializeField] private Dropdown playerCountDropdown;        
         
-        [SerializeField] private Dropdown choiceDropdown;
-
         private Player[] _players;
-
+        
         public Player[] GetPlayers()
         {
             return _players;
@@ -19,7 +18,7 @@ namespace PlayerSetup
             
         public void InitializePlayers()
         {
-            _players = new Player[choiceDropdown.value + 2];
+            _players = new Player[playerCountDropdown.value + 2];
         }
     }
 }
