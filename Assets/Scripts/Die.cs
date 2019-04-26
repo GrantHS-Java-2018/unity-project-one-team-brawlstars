@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour
 {
-    public int diceOneSideThrown = 0;
+    public int dieSideThrown = 0;
     private Sprite[] diceSides;
     private SpriteRenderer rend;
     private bool coroutineAllowed = true;
@@ -21,7 +21,7 @@ public class Dice : MonoBehaviour
         rend.sprite = diceSides[5];
     }
 
-    private void OnMouseDown()
+    public void RollTheDiceStart()
     {
         if (coroutineAllowed)
             StartCoroutine(RollTheDice());
@@ -38,7 +38,7 @@ public class Dice : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         
-        diceOneSideThrown = randomDiceSide + 1;
+        dieSideThrown = randomDiceSide + 1;
 
         coroutineAllowed = true;
         
