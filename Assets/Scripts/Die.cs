@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Dice : MonoBehaviour
+public class Die : MonoBehaviour
 {
     public int dieSideThrown = 0;
     private Sprite[] diceSides;
@@ -9,19 +9,20 @@ public class Dice : MonoBehaviour
     private bool coroutineAllowed = true;
 
 
+
     private void Update()
     {
         
     }
 
-    private void Start()
+    public void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
         rend.sprite = diceSides[5];
     }
 
-    public void RollTheDiceStart()
+    public void OnMouseDown()
     {
         if (coroutineAllowed)
             StartCoroutine(RollTheDice());
