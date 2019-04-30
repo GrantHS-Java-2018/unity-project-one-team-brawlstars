@@ -8,34 +8,24 @@ namespace PlayerSetup
 {
     public class TokenClickDetector : MonoBehaviour
     {   
-        private int _playerIndex = 0;
-
         [SerializeField] private Button buttonOfImport;
 
-        [SerializeField] private Player[] playersArray;
-
         [SerializeField] private Canvas initialDropdownCanvas;
+
+        [SerializeField] private GameObject playerArrayHolster;
         
         void Start()
         {
             gameObject.SetActive(false);
-        }
-
-        void Update()
-        {
-            if (!initialDropdownCanvas.isActiveAndEnabled)
-            {
-                playersArray = buttonOfImport.GetComponent<PlayerSetupManager>().GetPlayers();
-            }
-            
         }
         
         private void OnMouseOver()
         {
             if (Input.GetMouseButtonDown(0))
             {
+                gameObject.GetComponent<SpriteRenderer>().sprite = gameObject.GetComponent<Sprite>();
                 gameObject.SetActive(false);
-                //playersArray[_playerIndex].SetPlayerToken(gameObject.GetComponent<Sprite>());
+                playerArrayHolster.GetComponent<PlayerSetupManager>().AssignToken(gameObject.GetComponent<SpriteRenderer>().sprite);
             }
         }
     }

@@ -2,23 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngineInternal;
 
 namespace PlayerSetup
 {
     public class PlayerSetupManager : MonoBehaviour
     {
-        [SerializeField] private Dropdown playerCountDropdown;        
-        
-        private Player[] _players;
-        
-        public Player[] GetPlayers()
+        [SerializeField] private Dropdown playerCountDropdown;
+
+        [SerializeField] private Player[] players;
+
+        [SerializeField] private int playerIndex;
+
+        [SerializeField] private GameObject tokenSelectionCanvas;
+
+        public void AssignToken(Sprite assignedToken)
         {
-            return _players;
-        }
+            players[playerIndex].SetPlayerToken(assignedToken);
+            playerIndex += 1;
+            if (playerIndex < playerCountDropdown.value + 2)
+            {
+                tokenSelectionCanvas.GetComponentInChildren<Text>().text = "Player " + (playerIndex + 1) + ", pick a token";
+            }
+            else
+            {
+                tokenSelectionCanvas.SetActive(false);
+            }
             
+        }
+
         public void InitializePlayers()
         {
-            _players = new Player[playerCountDropdown.value + 2];
+            players = new Player[playerCountDropdown.value + 2];
+            for (int n = 0; n < playerCountDropdown.value + 2; n++)
+            {
+                players[n] = gameObject.AddComponent<Player>();
+            }
         }
     }
 }
