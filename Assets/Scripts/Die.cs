@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Dice : MonoBehaviour
+public class Die : MonoBehaviour
 {
-    public int diceOneSideThrown = 0;
+    public int dieSideThrown = 0;
     private Sprite[] diceSides;
     private SpriteRenderer rend;
     private bool coroutineAllowed = true;
+
 
 
     private void Update()
@@ -14,14 +15,14 @@ public class Dice : MonoBehaviour
         
     }
 
-    private void Start()
+    public void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
         rend.sprite = diceSides[5];
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         if (coroutineAllowed)
             StartCoroutine(RollTheDice());
@@ -38,7 +39,7 @@ public class Dice : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         
-        diceOneSideThrown = randomDiceSide + 1;
+        dieSideThrown = randomDiceSide + 1;
 
         coroutineAllowed = true;
         
