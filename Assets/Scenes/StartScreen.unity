@@ -306,6 +306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonOfImport: {fileID: 2030402852}
+  playersArray: []
+  initialDropdownCanvas: {fileID: 9516823}
 --- !u!61 &32808461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -656,6 +659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonOfImport: {fileID: 2030402852}
+  playersArray: []
+  initialDropdownCanvas: {fileID: 9516823}
 --- !u!61 &210742291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -884,6 +890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonOfImport: {fileID: 2030402852}
+  playersArray: []
+  initialDropdownCanvas: {fileID: 9516823}
 --- !u!61 &240108977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1003,6 +1012,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonOfImport: {fileID: 2030402852}
+  playersArray: []
+  initialDropdownCanvas: {fileID: 9516823}
 --- !u!61 &286044638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1237,6 +1249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonOfImport: {fileID: 2030402852}
+  playersArray: []
+  initialDropdownCanvas: {fileID: 9516823}
 --- !u!61 &492551662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1430,6 +1445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonOfImport: {fileID: 2030402852}
+  playersArray: []
+  initialDropdownCanvas: {fileID: 9516823}
 --- !u!61 &668094799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2252,6 +2270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonOfImport: {fileID: 2030402852}
+  playersArray: []
+  initialDropdownCanvas: {fileID: 9516823}
 --- !u!61 &1686133447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2371,6 +2392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonOfImport: {fileID: 2030402852}
+  playersArray: []
+  initialDropdownCanvas: {fileID: 9516823}
 --- !u!61 &1792286216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2758,10 +2782,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2030402849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d149345f38a12a240a78251b1e87c6dd, type: 3}
+  m_Script: {fileID: 11500000, guid: fa15f14469421d640a312e91a0514c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choiceDropdown: {fileID: 123622682}
+  playerCountDropdown: {fileID: 123622682}
 --- !u!114 &2030402852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2813,17 +2837,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 9516820}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1483937030}
         m_MethodName: SetTokenActives
         m_Mode: 6
@@ -2834,6 +2847,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 9516820}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
