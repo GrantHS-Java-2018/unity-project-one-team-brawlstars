@@ -22,7 +22,7 @@ public class Die : MonoBehaviour
         rend.sprite = diceSides[5];
     }
 
-    public void OnMouseDown()
+    public void RollTheDiceStart()
     {
         if (coroutineAllowed)
             StartCoroutine(RollTheDice());
