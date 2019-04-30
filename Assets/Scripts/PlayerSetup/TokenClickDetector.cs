@@ -35,7 +35,7 @@ namespace PlayerSetup
             if (Input.GetMouseButtonDown(0))
             {
                 gameObject.SetActive(false);
-                playersArray[_playerIndex].SetPlayerToken(gameObject.GetComponent<Sprite>());
+                //playersArray[_playerIndex].SetPlayerToken(gameObject.GetComponent<Sprite>());
             }
         }
     }
