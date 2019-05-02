@@ -9,19 +9,21 @@ namespace PlayerSetupScripts
 {
     public class PlayerManager : MonoBehaviour
     {
-        [SerializeField] private Dropdown playerCountDropdown;
+        [SerializeField] private Dropdown playerCountDropdown; //Dropdown for selecting number of players
 
-        [SerializeField] private Player[] players;
+        [SerializeField] private Player[] players; //Main array to hold players
 
-        [SerializeField] private int playerIndex;
+        [SerializeField] private GameObject tokenSelectionCanvas;//Canvas on which tokens are clicked and selected by players
 
-        [SerializeField] private GameObject tokenSelectionCanvas;
-
+        private int _playerIndex;
+        
+        //Simply makes it so this game object will not go away, so we can keep accessing array
         private void Awake()
         {
             DontDestroyOnLoad(this);
         }
 
+        //Initializes the player array in the beginning of the game
         public void InitializePlayers()
         {
             players = new Player[playerCountDropdown.value + 2];
@@ -31,22 +33,25 @@ namespace PlayerSetupScripts
             }
         }
         
+        //Simply assigns a token to a player in the start screen (triggers from TokenClickDetector)
         public void AssignToken(Sprite assignedToken)
         {
-            players[playerIndex].SetPlayerToken(assignedToken);
-            playerIndex += 1;
-            if (playerIndex < playerCountDropdown.value + 2)
+             //Exists to keep track of player that we are assigning token sprite too
+            players[_playerIndex].SetPlayerToken(assignedToken); 
+            _playerIndex += 1;
+            if (_playerIndex < playerCountDropdown.value + 2)
             {
-                tokenSelectionCanvas.GetComponentInChildren<Text>().text = "Player " + (playerIndex + 1) + ", pick a token";
+                tokenSelectionCanvas.GetComponentInChildren<Text>().text = "Player " + (_playerIndex + 1) + ", pick a token"; //Changes prompt text to prompt next player to choose token
             }
-            else
+            else //Loads main game scene
             {
-                SceneManager.LoadScene("BoardScene");
+                SceneManager.LoadScene("BoardScene"); 
             }
             
         }
 
-        public Player[] GetPlayersFromStart()
+        //Returns ever-changing player array so game can change player information
+        public Player[] GetPlayers()
         {
             return players;
         }
