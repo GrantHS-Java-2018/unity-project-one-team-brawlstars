@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngineInternal;
 
@@ -15,7 +16,16 @@ namespace PlayerSetup
         [SerializeField] private int playerIndex;
 
         [SerializeField] private GameObject tokenSelectionCanvas;
-
+        
+        public void InitializePlayers()
+        {
+            players = new Player[playerCountDropdown.value + 2];
+            for (int n = 0; n < playerCountDropdown.value + 2; n++)
+            {
+                players[n] = gameObject.AddComponent<Player>();
+            }
+        }
+        
         public void AssignToken(Sprite assignedToken)
         {
             players[playerIndex].SetPlayerToken(assignedToken);
@@ -26,18 +36,16 @@ namespace PlayerSetup
             }
             else
             {
-                tokenSelectionCanvas.SetActive(false);
+                SceneManager.LoadScene("BoardScene");
             }
             
         }
 
-        public void InitializePlayers()
+        public Player[] GetPlayersFromStart()
         {
-            players = new Player[playerCountDropdown.value + 2];
-            for (int n = 0; n < playerCountDropdown.value + 2; n++)
-            {
-                players[n] = gameObject.AddComponent<Player>();
-            }
+            return players;
         }
+
+        
     }
 }

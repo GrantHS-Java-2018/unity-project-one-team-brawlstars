@@ -309,7 +309,6 @@ MonoBehaviour:
   buttonOfImport: {fileID: 2030402852}
   initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
-  placeholder: {fileID: 0}
 --- !u!61 &32808461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -663,7 +662,6 @@ MonoBehaviour:
   buttonOfImport: {fileID: 2030402852}
   initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
-  placeholder: {fileID: 0}
 --- !u!61 &210742291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -895,7 +893,6 @@ MonoBehaviour:
   buttonOfImport: {fileID: 2030402852}
   initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
-  placeholder: {fileID: 0}
 --- !u!61 &240108977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1018,7 +1015,6 @@ MonoBehaviour:
   buttonOfImport: {fileID: 2030402852}
   initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
-  placeholder: {fileID: 0}
 --- !u!61 &286044638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1256,7 +1252,6 @@ MonoBehaviour:
   buttonOfImport: {fileID: 2030402852}
   initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
-  placeholder: {fileID: 0}
 --- !u!61 &492551662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1453,7 +1448,6 @@ MonoBehaviour:
   buttonOfImport: {fileID: 2030402852}
   initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
-  placeholder: {fileID: 0}
 --- !u!61 &668094799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2279,7 +2273,6 @@ MonoBehaviour:
   buttonOfImport: {fileID: 2030402852}
   initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
-  placeholder: {fileID: 0}
 --- !u!61 &1686133447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2402,7 +2395,6 @@ MonoBehaviour:
   buttonOfImport: {fileID: 2030402852}
   initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
-  placeholder: {fileID: 0}
 --- !u!61 &1792286216
 BoxCollider2D:
   m_ObjectHideFlags: 0
