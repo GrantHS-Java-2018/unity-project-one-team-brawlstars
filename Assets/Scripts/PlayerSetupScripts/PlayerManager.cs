@@ -7,7 +7,7 @@ using UnityEngineInternal;
 
 namespace PlayerSetupScripts
 {
-    public class PlayerSetupManager : MonoBehaviour
+    public class PlayerManager : MonoBehaviour
     {
         [SerializeField] private Dropdown playerCountDropdown;
 
