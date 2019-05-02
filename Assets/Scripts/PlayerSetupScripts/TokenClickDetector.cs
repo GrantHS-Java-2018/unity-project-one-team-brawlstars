@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.UI;
 
-namespace PlayerSetup
+namespace PlayerSetupScripts
 {
     public class TokenClickDetector : MonoBehaviour
     {   

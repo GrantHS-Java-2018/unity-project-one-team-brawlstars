@@ -306,8 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &32808461
 BoxCollider2D:
@@ -659,8 +657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &210742291
 BoxCollider2D:
@@ -890,8 +886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &240108977
 BoxCollider2D:
@@ -1012,8 +1006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &286044638
 BoxCollider2D:
@@ -1249,8 +1241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &492551662
 BoxCollider2D:
@@ -1445,8 +1435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &668094799
 BoxCollider2D:
@@ -1565,7 +1553,7 @@ GameObject:
   - component: {fileID: 918803298}
   - component: {fileID: 918803297}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2037,7 +2025,7 @@ GameObject:
   - component: {fileID: 1483937031}
   - component: {fileID: 1483937030}
   m_Layer: 0
-  m_Name: TokenController
+  m_Name: TokenPositioning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2170,7 +2158,7 @@ RectTransform:
   m_Children:
   - {fileID: 971208872}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2270,8 +2258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &1686133447
 BoxCollider2D:
@@ -2392,8 +2378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  initialDropdownCanvas: {fileID: 9516823}
   playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &1792286216
 BoxCollider2D:
@@ -2959,7 +2943,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108962889
 GameObject:
@@ -2972,7 +2956,7 @@ GameObject:
   - component: {fileID: 2108962891}
   - component: {fileID: 2108962890}
   m_Layer: 0
-  m_Name: PlayerArrayHolster
+  m_Name: TemporaryPlayerHolster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

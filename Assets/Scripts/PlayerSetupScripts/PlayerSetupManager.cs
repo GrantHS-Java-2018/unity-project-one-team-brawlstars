@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngineInternal;
 
-namespace PlayerSetup
+namespace PlayerSetupScripts
 {
     public class PlayerSetupManager : MonoBehaviour
     {
@@ -16,7 +16,12 @@ namespace PlayerSetup
         [SerializeField] private int playerIndex;
 
         [SerializeField] private GameObject tokenSelectionCanvas;
-        
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         public void InitializePlayers()
         {
             players = new Player[playerCountDropdown.value + 2];

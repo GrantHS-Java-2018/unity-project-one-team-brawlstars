@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PlayerSetup
+namespace PlayerSetupScripts
 {
     public class TokenPosition : MonoBehaviour
     {
