@@ -206,7 +206,7 @@ RectTransform:
   - {fileID: 318300550}
   - {fileID: 2030402850}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -244,7 +244,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &32808459
 SpriteRenderer:
@@ -306,9 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  playersArray: []
-  initialDropdownCanvas: {fileID: 9516823}
+  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &32808461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -597,7 +595,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &210742289
 SpriteRenderer:
@@ -659,9 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  playersArray: []
-  initialDropdownCanvas: {fileID: 9516823}
+  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &210742291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -828,7 +824,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &240108975
 SpriteRenderer:
@@ -890,9 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  playersArray: []
-  initialDropdownCanvas: {fileID: 9516823}
+  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &240108977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -950,7 +944,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &286044636
 SpriteRenderer:
@@ -1012,9 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  playersArray: []
-  initialDropdownCanvas: {fileID: 9516823}
+  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &286044638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1187,7 +1179,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &492551660
 SpriteRenderer:
@@ -1249,9 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  playersArray: []
-  initialDropdownCanvas: {fileID: 9516823}
+  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &492551662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1383,7 +1373,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &668094797
 SpriteRenderer:
@@ -1445,9 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  playersArray: []
-  initialDropdownCanvas: {fileID: 9516823}
+  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &668094799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1565,7 +1553,7 @@ GameObject:
   - component: {fileID: 918803298}
   - component: {fileID: 918803297}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2037,7 +2025,7 @@ GameObject:
   - component: {fileID: 1483937031}
   - component: {fileID: 1483937030}
   m_Layer: 0
-  m_Name: TokenController
+  m_Name: TokenPositioning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2076,7 +2064,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649721463
 GameObject:
@@ -2096,7 +2084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1649721464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2208,7 +2196,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1686133445
 SpriteRenderer:
@@ -2270,9 +2258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  playersArray: []
-  initialDropdownCanvas: {fileID: 9516823}
+  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &1686133447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2330,7 +2316,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1792286214
 SpriteRenderer:
@@ -2392,9 +2378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonOfImport: {fileID: 2030402852}
-  playersArray: []
-  initialDropdownCanvas: {fileID: 9516823}
+  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &1792286216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2745,7 +2729,6 @@ GameObject:
   - component: {fileID: 2030402854}
   - component: {fileID: 2030402853}
   - component: {fileID: 2030402852}
-  - component: {fileID: 2030402851}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2773,19 +2756,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2030402851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030402849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa15f14469421d640a312e91a0514c09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCountDropdown: {fileID: 123622682}
 --- !u!114 &2030402852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2826,7 +2796,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2030402851}
+      - m_Target: {fileID: 2108962890}
         m_MethodName: InitializePlayers
         m_Mode: 1
         m_Arguments:
@@ -2858,6 +2828,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1649721463}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -2962,5 +2943,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2108962889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2108962891}
+  - component: {fileID: 2108962890}
+  m_Layer: 0
+  m_Name: PlayerHolster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2108962890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108962889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa15f14469421d640a312e91a0514c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCountDropdown: {fileID: 123622682}
+  players: []
+  playerIndex: 0
+  tokenSelectionCanvas: {fileID: 1649721463}
+--- !u!4 &2108962891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108962889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
