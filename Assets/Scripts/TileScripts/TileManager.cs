@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace TileScripts
 {
-    public class GameLoop : MonoBehaviour
+    public class TileManager : MonoBehaviour
     {
+        private Tile[] gameTiles = new Tile[40];
         
-
         
     }
 }
