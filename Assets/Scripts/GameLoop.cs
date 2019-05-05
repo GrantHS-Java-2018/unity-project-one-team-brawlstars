@@ -11,7 +11,7 @@ public static class GameLoop
 
         public static Player GetCurrentPlayer()
         {
-                return _currentPlayer
+                return _currentPlayer;
         }
 
         public static int GetCurrentDieSum()
