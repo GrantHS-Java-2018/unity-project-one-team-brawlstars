@@ -12,6 +12,20 @@ public class Player : MonoBehaviour
     [SerializeField] private int money;
 
     [SerializeField] private bool inJail;
+
+    private int _railroadsOwned;
+
+    private int _utilitiesOwned;
+
+    public int GetRailroadsOwned()
+    {
+        return _railroadsOwned;
+    }
+
+    public int GetUtilitiesOwned()
+    {
+        return _utilitiesOwned;
+    }
     
     public void SetPlayerToken(Sprite token)
     {

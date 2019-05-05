@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RealEstateTile : MonoBehaviour
+public class GoTile : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
