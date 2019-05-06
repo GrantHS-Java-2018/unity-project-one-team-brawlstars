@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameInformation;
 using UnityEngine;
 
 namespace TileScripts
@@ -10,9 +11,7 @@ namespace TileScripts
         private String _tileName;
         private Vector3 _waypointLocation;
 
-        public abstract void DoTileAction()
-        {
-            
-        }
+        public abstract void SetUpTile(TileInformation tileTemplate);
+        public abstract void DoTileAction();
     }
 }

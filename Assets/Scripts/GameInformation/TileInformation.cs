@@ -1,0 +1,106 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace GameInformation
+{
+    public class TileInformation : MonoBehaviour
+    {
+        private static TileInformation[] _tileInformationCollection = new TileInformation[40];
+        
+        private String[] _nameSource = 
+        {
+            "Go", 
+            "Mediterranean Avenue", 
+            "Community Chest", 
+            "Baltic Avenue", 
+            "Income Tax", 
+            "Reading Railroad",
+            "Oriental Avenue", 
+            "Chance", 
+            "Vermont Avenue", 
+            "Connecticut Avenue",
+            "Jail",
+            "St. Charles Place",
+            "Electric Company",
+            "States Avenue",
+            "Virginia Avenue",
+            "Pennsylvania Railroad",
+            "St. James Place",
+            "Community Chest",
+            "Tennessee Avenue",
+            "New York Avenue",
+            "Free Parking",
+            "Kentucky Avenue",
+            "Chance",
+            "Indiana Avenue",
+            "Illinois Avenue",
+            "B. & O. Railroad",
+            "Atlantic Avenue",
+            "Ventnor Avenue",
+            "Water Works",
+            "Marvin Gardens",
+            "Go To Jail",
+            "Pacific Avenue",
+            "North Carolina Avenue",
+            "Community Chest",
+            "Pennsylvania Avenue",
+            "Short Line",
+            "Chance",
+            "Park Place",
+            "Luxury Tax",
+            "Boardwalk"
+        };
+
+        //Formatted with second dimension being Price, Mortgage, House Price, Rent, Rent(1h), Rent(2h), Rent(3h), Rent(4h), Rent(5h)
+        //For non-real estate property tiles only some of these values are used, others stay 0
+        //For non-property tiles, these values are not used, as their functions can be described completely in their own class
+        private int[,] _propertyValuesSource =
+            {
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {60, 30, 50, 2, 10, 30, 90, 160, 250},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {60, 30, 50, 4, 20, 60, 180, 320, 450},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {200, 100, 0, 0, 0, 0, 0, 0, 0}, //Railroad
+                {100, 50, 50, 6, 30, 90, 270, 400, 550},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {100, 50, 50, 6, 30, 90, 270, 400, 550},
+                {120, 60, 50, 8, 40, 100, 300, 450, 600},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {140, 70, 100, 10, 50, 150, 450, 625, 750},
+                {150, 75, 0, 0, 0, 0, 0, 0, 0}, //Utility
+                {140, 70, 100, 10, 50, 150, 450, 625, 750},
+                {160, 80, 100, 12, 60, 180, 500, 700, 900},
+                {200, 100, 0, 0, 0, 0, 0, 0, 0}, //Railroad
+                {180, 90, 100, 14, 70, 200, 550, 750, 950},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {180, 90, 100, 14, 70, 200, 550, 750, 950},
+                {200, 100, 100, 16, 80, 220, 600, 800, 1000},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {220, 110, 150, 18, 90, 250, 700, 875, 1050},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {220, 110, 150, 18, 90, 250, 700, 875, 1050},
+                {240, 120, 150, 20, 100, 300, 750, 925, 1100},
+                {200, 100, 0, 0, 0, 0, 0, 0, 0}, //Railroad
+                {260, 130, 150, 22, 110, 330, 800, 975, 1150},
+                {260, 130, 150, 22, 110, 330, 800, 975, 1150},
+                {150, 75, 0, 0, 0, 0, 0, 0, 0}, //Utility
+                {280, 140, 150, 24, 120, 360, 850, 1025, 1200},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {300, 150, 200, 26, 130, 390, 900, 1100, 1275},
+                {300, 150, 200, 26, 130, 390, 900, 1100, 1275},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {320, 160, 200, 28, 150, 450, 1000, 1200, 1400},
+                {200, 100, 0, 0, 0, 0, 0, 0, 0}, //Railroad
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {350, 175, 200, 35, 175, 500, 1100, 1300, 1500},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {400, 200, 200, 50, 200, 600, 1400, 1700, 2000},
+            };
+        
+        private Vector3[] _waypoints = new Vector3[40];
+
+    }
+}

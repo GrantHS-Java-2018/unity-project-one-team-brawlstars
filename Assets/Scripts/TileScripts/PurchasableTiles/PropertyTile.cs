@@ -8,7 +8,8 @@ namespace TileScripts.PurchasableTiles
     {
         protected Player Owner;
         private int _purchasePrice;
-        private int _mortgagePrice;
+        private int _mortgageDividend;
+        private bool _isMortgaged;
 
         public void Buy()
         {
@@ -16,27 +17,24 @@ namespace TileScripts.PurchasableTiles
             Owner = GameLoop.GetCurrentPlayer();
         }
         
-        public void Mortgage()
+        public void ChangeMortgage()
         {
-            
-            
-        }
-        
-        protected abstract void Rent()
-        {
-            
-        }
-
-        public override void DoTileAction()
-        {
-            if (Owner == null)
+            if (!_isMortgaged)
             {
-                
+                Owner.Pay(_mortgageDividend);
+                _isMortgaged = true;
             }
             else
             {
-                Rent();
-            }
+                Owner.Charge(_mortgageDividend + _mortgageDividend / 10);
+            } 
+        }
+        
+        protected abstract void Rent();
+
+        public override void DoTileAction()
+        {
+            
         }
     }
 }
