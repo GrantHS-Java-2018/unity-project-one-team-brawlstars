@@ -100,7 +100,98 @@ namespace GameInformation
                 {400, 200, 200, 50, 200, 600, 1400, 1700, 2000},
             };
         
-        private Vector3[] _waypoints = new Vector3[40];
+        //Holds the point in space where player tokens will be oriented around as related to each tile, enter proper coordinates in each vector parameter box
+        private Vector3[] _waypoints =
+        {
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3()
+        };
 
+
+
+        /*for (int n = 0; n < 40; n++) //This for loop simply positions waypoints so they can be referenced later for movement
+    {
+        //If statements tell the change in x or y for the next waypoint vs the previous one
+        float deltaX = 0f;
+        float deltaY = 0f;
+        if (n == 0)
+        {
+            deltaX = -0.97f;
+        }
+        else if (n == 1 || n == 10)
+        {
+            deltaX = -1.585f;
+        }
+        else if (n > 1 && n < 10)
+        {
+            deltaX = -1.23f;
+        }
+        else if (n == 11 || n == 20)
+        {
+            deltaY = 1.585f;
+        }
+        else if (n > 11 && n < 20)
+        {
+            deltaY = 1.23f;
+        }
+        else if (n == 21 || n == 30)
+        {
+            deltaX = 1.585f;
+        }
+        else if (n > 21 && n < 30)
+        {
+            deltaX = 1.23f;
+        }
+        else if (n == 31)
+        {
+            deltaY = -1.585f;
+        }
+        else if (n > 31 && n < 40)
+        {
+            deltaY = -1.23f;
+        }
+       
+        //Inserts waypoint position into the array
+        waypointPositions[n] = new Vector3(previousX + deltaX, previousY + deltaY, 1f);
+        previousX = waypointPositions[n].x;
+        previousY = waypointPositions[n].y;*/
     }
 }
