@@ -7,6 +7,10 @@ namespace TileScripts.PurchasableTiles
 {
     public class UtilityTile : PropertyTile
     {
+        protected void SetUpTile()
+        {
+            
+        }
         protected override void Rent()
         {
             int rentMoney = Owner.GetRailroadsOwned() * GameLoop.GetCurrentDieSum();

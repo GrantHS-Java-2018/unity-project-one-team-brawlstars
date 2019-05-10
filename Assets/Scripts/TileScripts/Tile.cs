@@ -8,10 +8,10 @@ namespace TileScripts
 {
     public abstract class Tile
     {
-        private String _tileName;
-        private Vector3 _waypointLocation;
+        protected String TileName;
+        protected Vector3 TileWaypoint;
 
-        public abstract void SetUpTile(TileInformation tileTemplate);
+        public abstract void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues);
         public abstract void DoTileAction();
     }
 }

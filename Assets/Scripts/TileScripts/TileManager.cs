@@ -13,7 +13,7 @@ namespace TileScripts
         {
             for (int n = 0; n < 40; n++)
             {
-                _gameTiles[n].setUpTile(TileInformation);
+                _gameTiles[n].setUpTile(TileInformation.GetTileInformation(n));
             }
         }
     }

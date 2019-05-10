@@ -5,11 +5,19 @@ using UnityEngine;
 
 namespace GameInformation
 {
-    public class TileInformation : MonoBehaviour
+    public static class TileInformation
     {
-        private static TileInformation[] _tileInformationCollection = new TileInformation[40];
+        public static (String, Vector3, int[]) GetTileInformation(int tileIndex)
+        {
+            int[] propertyValueArray = new int[8];
+            for (int n = 0; n < 9; n++)
+            {
+                propertyValueArray[n] = PropertyValuesSource[tileIndex, n];
+            }
+            return (NameSource[tileIndex], Waypoints[tileIndex], propertyValueArray);
+        }
         
-        private String[] _nameSource = 
+        private static readonly String[] NameSource = 
         {
             "Go", 
             "Mediterranean Avenue", 
@@ -52,11 +60,56 @@ namespace GameInformation
             "Luxury Tax",
             "Boardwalk"
         };
+        
+        //Holds the point in space where player tokens will be oriented around as related to each tile, enter proper coordinates in each vector parameter box
+        private static readonly Vector3[] Waypoints =
+        {
+            new Vector3(0, 3, 0),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3(),
+            new Vector3()
+        };
 
         //Formatted with second dimension being Price, Mortgage, House Price, Rent, Rent(1h), Rent(2h), Rent(3h), Rent(4h), Rent(5h)
         //For non-real estate property tiles only some of these values are used, others stay 0
         //For non-property tiles, these values are not used, as their functions can be described completely in their own class
-        private int[,] _propertyValuesSource =
+        private static readonly int[,] PropertyValuesSource =
             {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
                 {60, 30, 50, 2, 10, 30, 90, 160, 250},
@@ -100,50 +153,7 @@ namespace GameInformation
                 {400, 200, 200, 50, 200, 600, 1400, 1700, 2000},
             };
         
-        //Holds the point in space where player tokens will be oriented around as related to each tile, enter proper coordinates in each vector parameter box
-        private Vector3[] _waypoints =
-        {
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3()
-        };
+        
 
 
 
