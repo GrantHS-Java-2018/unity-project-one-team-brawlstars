@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : MonoBehaviour
+public class CommunityChestSpace : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
