@@ -73,6 +73,6 @@ for (int n = 0; n < 40; n++) //This for loop simply positions waypoints so they 
         }
     }
     //FOR FUTURE REFERENCE ON TILE SIZES
-    //Half of a big square is 97 pixels, or 0.97 units.
-    //Half of a small rectangle is 0.97 units vertically, and 1.23 units horizontally (0.615) is half
+    //Half of a big square is 97 pixels, 97 units
+    //Half of a small rectangle is 97 units vertically, and 123 units horizontally (61.5) is half
 }

@@ -9,7 +9,7 @@ namespace GameInformation
     {
         public static (String, Vector3, int[]) GetTileInformation(int tileIndex)
         {
-            int[] propertyValueArray = new int[8];
+            int[] propertyValueArray = new int[9];
             for (int n = 0; n < 9; n++)
             {
                 propertyValueArray[n] = PropertyValuesSource[tileIndex, n];
@@ -64,7 +64,7 @@ namespace GameInformation
         //Holds the point in space where player tokens will be oriented around as related to each tile, enter proper coordinates in each vector parameter box
         private static readonly Vector3[] Waypoints =
         {
-            new Vector3(0, 3, 0),
+            new Vector3(),
             new Vector3(),
             new Vector3(),
             new Vector3(),
