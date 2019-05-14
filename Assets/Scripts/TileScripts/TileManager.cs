@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using GameInformation;
 using UnityEngine;
@@ -13,7 +14,8 @@ namespace TileScripts
         {
             for (int n = 0; n < 40; n++)
             {
-                _gameTiles[n].setUpTile(TileInformation);
+                var tileInformationHolder = TileInformation.GetTileInformation(n);
+                _gameTiles[0].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3);
             }
         }
     }
