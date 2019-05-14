@@ -1,18 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TileScripts;
 using UnityEngine;
 
-public class GoToJailTile : MonoBehaviour
+public class GoToJailTile : Tile
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public override void DoTileAction()
     {
-        
+            
     }
 }

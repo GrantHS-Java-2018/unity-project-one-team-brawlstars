@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TileScripts;
 using UnityEngine;
 
-public class TaxTile : Tile
+public class InJailTile : Tile
 {
     public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
     {
