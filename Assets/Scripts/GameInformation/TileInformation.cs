@@ -61,49 +61,54 @@ namespace GameInformation
             "Boardwalk"
         };
         
-        //Holds the point in space where player tokens will be oriented around as related to each tile, enter proper coordinates in each vector parameter box
+        //Holds the point in space where player tokens will be oriented around as related to each tile
+        //FOR FUTURE REFERENCE ON TILE SIZES
+        //A rectangle is 123 pixels wide, and 198 pixels tall
+        //A square is 198 pixels by 198 pixels
+        //To orient them correctly, multiply the pixels by (5/6) to account for monopoly board sprite scale
+        //Moving between rectangles deltaX = 102.5, moving into or out of square deltaX = 133.75
         private static readonly Vector3[] Waypoints =
         {
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3(),
-            new Vector3()
+            new Vector3(543.75f, -463.75f, 0f), 
+            new Vector3(410f, -463.75f, 0f),
+            new Vector3(307.5f, -463.75f, 0f),
+            new Vector3(205f, -463.75f, 0f),
+            new Vector3(102.5f, -463.75f, 0f),
+            new Vector3(0f, -463.75f, 0f),
+            new Vector3(-102.5f, -463.75f, 0f),
+            new Vector3(-205f, -463.75f, 0f),
+            new Vector3(-307.5f, -463.75f, 0f),
+            new Vector3(-410f, -463.75f, 0f),
+            new Vector3(-543.75f, -463.75f, 0f),
+            new Vector3(-543.75f, -330f, 0f),
+            new Vector3(-543.75f, -227.5f, 0f),
+            new Vector3(-543.75f, -125f, 0f),
+            new Vector3(-543.75f, -22.5f, 0f),
+            new Vector3(-543.75f, 80f, 0f),
+            new Vector3(-543.75f, 182.5f, 0f),
+            new Vector3(-543.75f, 285f, 0f),
+            new Vector3(-543.75f, 387.5f, 0f),
+            new Vector3(-543.75f, 490f, 0f),
+            new Vector3(-543.75f, 623.75f, 0f),
+            new Vector3(-410f, 623.75f, 0f),
+            new Vector3(-307.5f, 623.75f, 0f),
+            new Vector3(-205f, 623.75f, 0f),
+            new Vector3(-102.5f, 623.75f, 0f),
+            new Vector3(0f, 623.75f, 0f),
+            new Vector3( 102.5f, 623.75f, 0f),
+            new Vector3(205f, 623.75f, 0f),
+            new Vector3(307.5f, 623.75f, 0f),
+            new Vector3(410f, 623.75f, 0f),
+            new Vector3(543.75f, 623.75f, 0f),
+            new Vector3(543.75f, 490f, 0f),
+            new Vector3(543.75f, 387.5f, 0f),
+            new Vector3(543.75f, 285f, 0f),
+            new Vector3(543.75f, 182.5f, 0f),
+            new Vector3(543.75f, 80f, 0f),
+            new Vector3(543.75f, -22.5f, 0f),
+            new Vector3(543.75f, -125f, 0f),
+            new Vector3(543.75f, -227.5f, 0f),
+            new Vector3(543.75f, -330f, 0f)
         };
 
         //Formatted with second dimension being Price, Mortgage, House Price, Rent, Rent(1h), Rent(2h), Rent(3h), Rent(4h), Rent(5h)
@@ -153,56 +158,5 @@ namespace GameInformation
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
                 {400, 200, 200, 50, 200, 600, 1400, 1700, 2000},
             };
-        
-        
-
-
-
-        /*for (int n = 0; n < 40; n++) //This for loop simply positions waypoints so they can be referenced later for movement
-    {
-        //If statements tell the change in x or y for the next waypoint vs the previous one
-        float deltaX = 0f;
-        float deltaY = 0f;
-        if (n == 0)
-        {
-            deltaX = -0.97f;
-        }
-        else if (n == 1 || n == 10)
-        {
-            deltaX = -1.585f;
-        }
-        else if (n > 1 && n < 10)
-        {
-            deltaX = -1.23f;
-        }
-        else if (n == 11 || n == 20)
-        {
-            deltaY = 1.585f;
-        }
-        else if (n > 11 && n < 20)
-        {
-            deltaY = 1.23f;
-        }
-        else if (n == 21 || n == 30)
-        {
-            deltaX = 1.585f;
-        }
-        else if (n > 21 && n < 30)
-        {
-            deltaX = 1.23f;
-        }
-        else if (n == 31)
-        {
-            deltaY = -1.585f;
-        }
-        else if (n > 31 && n < 40)
-        {
-            deltaY = -1.23f;
-        }
-       
-        //Inserts waypoint position into the array
-        waypointPositions[n] = new Vector3(previousX + deltaX, previousY + deltaY, 1f);
-        previousX = waypointPositions[n].x;
-        previousY = waypointPositions[n].y;*/
     }
 }
