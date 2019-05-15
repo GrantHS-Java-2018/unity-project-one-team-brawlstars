@@ -8,7 +8,7 @@ public class GoToJailTile : Tile
 {
     public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
     {
-        
+        TileName = incomingTileName;
     }
     
     public override void DoTileAction()

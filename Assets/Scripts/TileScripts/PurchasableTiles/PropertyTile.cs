@@ -9,8 +9,8 @@ namespace TileScripts.PurchasableTiles
 {
     public abstract class PropertyTile : Tile
     {
-        protected Player Owner;
-        protected int PurchasePrice;
+        [SerializeField] protected Player Owner;
+        [SerializeField] protected int PurchasePrice;
         protected int MortgageDividend;
         private bool _isMortgaged;
 

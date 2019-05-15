@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using GameInformation;
 using TileScripts.PurchasableTiles;
+using TileScripts.SpecialTiles;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace TileScripts
 {
     public class TileManager : MonoBehaviour
     {
-        private Tile[] _gameTiles = new Tile[40];
-
+        [SerializeField] private Tile[] _gameTiles = new Tile[40];
+        
         private void Start()
         {
             _gameTiles[0] = new GoTile();
@@ -53,11 +56,12 @@ namespace TileScripts
             _gameTiles[37] = new RealEstateTile();
             _gameTiles[38] = new TaxTile();
             _gameTiles[39] = new RealEstateTile();
-            
+
             for (int n = 0; n < 40; n++)
             {
                 var tileInformationHolder = TileInformation.GetTileInformation(n);
-                _gameTiles[0].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3);
+                _gameTiles[n].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3);
+                Debug.Log(_gameTiles[n].TileName);
             }
         }
     }

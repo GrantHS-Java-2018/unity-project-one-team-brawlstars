@@ -107,18 +107,19 @@ namespace GameInformation
         };
 
         //Formatted with second dimension being Price, Mortgage, House Price, Rent, Rent(1h), Rent(2h), Rent(3h), Rent(4h), Rent(5h)
-        //For non-real estate property tiles only some of these values are used, others stay 0
-        //For non-property tiles, these values are not used, as their functions can be described completely in their own class
+        //For non-real estate property tiles only first few of these variables are used, others are not used, and stay 0
+        //CardDeckTile types are chosen by 1st value, 0 is chance, 1 is community chest
+        //For any other tiles, these values are not used, as their functions can be described completely in their own class
         private static readonly int[,] PropertyValuesSource =
             {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
                 {60, 30, 50, 2, 10, 30, 90, 160, 250},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {1, 0, 0, 0, 0, 0, 0, 0, 0}, //Community Chest
                 {60, 30, 50, 4, 20, 60, 180, 320, 450},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
                 {200, 100, 0, 0, 0, 0, 0, 0, 0}, //Railroad
                 {100, 50, 50, 6, 30, 90, 270, 400, 550},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Chance
                 {100, 50, 50, 6, 30, 90, 270, 400, 550},
                 {120, 60, 50, 8, 40, 100, 300, 450, 600},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
@@ -128,12 +129,12 @@ namespace GameInformation
                 {160, 80, 100, 12, 60, 180, 500, 700, 900},
                 {200, 100, 0, 0, 0, 0, 0, 0, 0}, //Railroad
                 {180, 90, 100, 14, 70, 200, 550, 750, 950},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {1, 0, 0, 0, 0, 0, 0, 0, 0}, //Community Chest
                 {180, 90, 100, 14, 70, 200, 550, 750, 950},
                 {200, 100, 100, 16, 80, 220, 600, 800, 1000},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
                 {220, 110, 150, 18, 90, 250, 700, 875, 1050},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Chance
                 {220, 110, 150, 18, 90, 250, 700, 875, 1050},
                 {240, 120, 150, 20, 100, 300, 750, 925, 1100},
                 {200, 100, 0, 0, 0, 0, 0, 0, 0}, //Railroad
@@ -144,10 +145,10 @@ namespace GameInformation
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
                 {300, 150, 200, 26, 130, 390, 900, 1100, 1275},
                 {300, 150, 200, 26, 130, 390, 900, 1100, 1275},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {1, 0, 0, 0, 0, 0, 0, 0, 0}, //Community Chest
                 {320, 160, 200, 28, 150, 450, 1000, 1200, 1400},
                 {200, 100, 0, 0, 0, 0, 0, 0, 0}, //Railroad
-                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Chance
                 {350, 175, 200, 35, 175, 500, 1100, 1300, 1500},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
                 {400, 200, 200, 50, 200, 600, 1400, 1700, 2000},
