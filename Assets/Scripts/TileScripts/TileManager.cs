@@ -61,7 +61,6 @@ namespace TileScripts
             {
                 var tileInformationHolder = TileInformation.GetTileInformation(n);
                 _gameTiles[n].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3);
-                Debug.Log(_gameTiles[n].TileName);
             }
         }
     }
