@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TileScripts;
 using UnityEngine;
 
-public static class GameLoop
+public class GameLoop : MonoBehaviour
 {
         private static Player _currentPlayer;
 

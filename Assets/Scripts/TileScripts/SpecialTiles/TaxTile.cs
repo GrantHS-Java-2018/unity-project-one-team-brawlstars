@@ -1,18 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TileScripts;
 using UnityEngine;
 
-public class TaxTile : MonoBehaviour
+namespace TileScripts.SpecialTiles
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public class TaxTile : Tile
     {
-        
+        public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
+        {
+            TileName = incomingTileName;
+        }
+
+        public override void DoTileAction()
+        {
+
+        }
     }
 }

@@ -6,17 +6,16 @@ using UnityEngine;
 
 namespace TileScripts.SpecialTiles
 {
-
-    public class GoTile : Tile
+    public class InJailTile : Tile
     {
         public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
         {
             TileName = incomingTileName;
         }
-
+        
         public override void DoTileAction()
         {
-
+                
         }
     }
 }

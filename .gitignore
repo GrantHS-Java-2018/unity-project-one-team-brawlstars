@@ -130,3 +130,4 @@ sysinfo.txt
 
 
 # End of https://www.gitignore.io/api/unity,rider
+Assets/Plugins/Editor/JetBrains/JetBrains\.Rider\.Unity\.Editor\.Plugin\.Repacked\.dll

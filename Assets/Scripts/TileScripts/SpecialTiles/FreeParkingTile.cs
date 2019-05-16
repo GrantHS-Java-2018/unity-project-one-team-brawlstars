@@ -1,18 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TileScripts;
 using UnityEngine;
 
-public class FreeParkingTile : MonoBehaviour
+namespace TileScripts.SpecialTiles
 {
-    // Start is called before the first frame update
-    void Start()
+    public class FreeParkingTile : Tile
     {
+        public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
+        {
+            TileName = incomingTileName;
+        }
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void DoTileAction()
+        {
+                
+        }
     }
 }
