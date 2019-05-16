@@ -16,7 +16,6 @@ namespace TileScripts.SpecialTiles
 
         public override void DoTileAction()
         {
-
         }
     }
 }

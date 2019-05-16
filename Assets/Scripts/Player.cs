@@ -46,6 +46,12 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    public void GoToJail()
+    {
+        boardLocation = 10;
+        inJail = true;
+    }
 }
 
 
