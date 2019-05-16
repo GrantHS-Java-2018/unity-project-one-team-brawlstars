@@ -17,6 +17,7 @@ public class Die : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log("hello");
         rend = GetComponent<SpriteRenderer>();
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
         rend.sprite = diceSides[5];
