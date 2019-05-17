@@ -17,12 +17,13 @@ public class Die : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log("hello");
         rend = GetComponent<SpriteRenderer>();
-        diceSides = Resources.LoadAll<Sprite>("DiceSides/");
+        diceSides = Resources.LoadAll<Sprite>("Sprites/DiceSides/");
         rend.sprite = diceSides[5];
     }
 
-    public void RollTheDiceStart()
+    public void ClickButton()
     {
         if (coroutineAllowed)
             StartCoroutine(RollTheDice());
