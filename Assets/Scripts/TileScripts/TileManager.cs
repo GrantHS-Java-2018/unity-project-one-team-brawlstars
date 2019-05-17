@@ -12,55 +12,55 @@ namespace TileScripts
 {
     public class TileManager : MonoBehaviour
     {
-        [SerializeField] private Tile[] _gameTiles = new Tile[40];
+         public Tile[] gameTiles = new Tile[40];
         
         private void Start()
         {
-            _gameTiles[0] = new GoTile();
-            _gameTiles[1] = new RealEstateTile();
-            _gameTiles[2] = new CardDeckTile();
-            _gameTiles[3] = new RealEstateTile();
-            _gameTiles[4] = new TaxTile();
-            _gameTiles[5] = new RailroadTile();
-            _gameTiles[6] = new RealEstateTile();
-            _gameTiles[7] = new CardDeckTile();
-            _gameTiles[8] = new RealEstateTile();
-            _gameTiles[9] = new RealEstateTile();
-            _gameTiles[10] = new InJailTile();
-            _gameTiles[11] = new RealEstateTile();
-            _gameTiles[12] = new UtilityTile();
-            _gameTiles[13] = new RealEstateTile();
-            _gameTiles[14] = new RealEstateTile();
-            _gameTiles[15] = new RailroadTile();
-            _gameTiles[16] = new RealEstateTile();
-            _gameTiles[17] = new CardDeckTile();
-            _gameTiles[18] = new RealEstateTile();
-            _gameTiles[19] = new RealEstateTile();
-            _gameTiles[20] = new FreeParkingTile();
-            _gameTiles[21] = new RealEstateTile();
-            _gameTiles[22] = new CardDeckTile();
-            _gameTiles[23] = new RealEstateTile();
-            _gameTiles[24] = new RealEstateTile();
-            _gameTiles[25] = new RailroadTile();
-            _gameTiles[26] = new RealEstateTile();
-            _gameTiles[27] = new RealEstateTile();
-            _gameTiles[28] = new UtilityTile();
-            _gameTiles[29] = new RealEstateTile();
-            _gameTiles[30] = new GoToJailTile();
-            _gameTiles[31] = new RealEstateTile();
-            _gameTiles[32] = new RealEstateTile();
-            _gameTiles[33] = new CardDeckTile();
-            _gameTiles[34] = new RealEstateTile();
-            _gameTiles[35] = new RailroadTile();
-            _gameTiles[36] = new CardDeckTile();
-            _gameTiles[37] = new RealEstateTile();
-            _gameTiles[38] = new TaxTile();
-            _gameTiles[39] = new RealEstateTile();
+            gameTiles[0] = new GoTile();
+            gameTiles[1] = new RealEstateTile();
+            gameTiles[2] = new CardDeckTile();
+            gameTiles[3] = new RealEstateTile();
+            gameTiles[4] = new TaxTile();
+            gameTiles[5] = new RailroadTile();
+            gameTiles[6] = new RealEstateTile();
+            gameTiles[7] = new CardDeckTile();
+            gameTiles[8] = new RealEstateTile();
+            gameTiles[9] = new RealEstateTile();
+            gameTiles[10] = new InJailTile();
+            gameTiles[11] = new RealEstateTile();
+            gameTiles[12] = new UtilityTile();
+            gameTiles[13] = new RealEstateTile();
+            gameTiles[14] = new RealEstateTile();
+            gameTiles[15] = new RailroadTile();
+            gameTiles[16] = new RealEstateTile();
+            gameTiles[17] = new CardDeckTile();
+            gameTiles[18] = new RealEstateTile();
+            gameTiles[19] = new RealEstateTile();
+            gameTiles[20] = new FreeParkingTile();
+            gameTiles[21] = new RealEstateTile();
+            gameTiles[22] = new CardDeckTile();
+            gameTiles[23] = new RealEstateTile();
+            gameTiles[24] = new RealEstateTile();
+            gameTiles[25] = new RailroadTile();
+            gameTiles[26] = new RealEstateTile();
+            gameTiles[27] = new RealEstateTile();
+            gameTiles[28] = new UtilityTile();
+            gameTiles[29] = new RealEstateTile();
+            gameTiles[30] = new GoToJailTile();
+            gameTiles[31] = new RealEstateTile();
+            gameTiles[32] = new RealEstateTile();
+            gameTiles[33] = new CardDeckTile();
+            gameTiles[34] = new RealEstateTile();
+            gameTiles[35] = new RailroadTile();
+            gameTiles[36] = new CardDeckTile();
+            gameTiles[37] = new RealEstateTile();
+            gameTiles[38] = new TaxTile();
+            gameTiles[39] = new RealEstateTile();
 
             for (int n = 0; n < 40; n++)
             {
                 var tileInformationHolder = TileInformation.GetTileInformation(n);
-                _gameTiles[n].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3);
+                gameTiles[n].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3);
             }
         }
     }

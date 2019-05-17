@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using TileScripts;
 using UnityEngine;
 
-public class GoToJailTile : Tile
+namespace TileScripts.SpecialTiles
 {
-    public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
+    public class GoToJailTile : Tile
     {
-        TileName = incomingTileName;
-    }
-    
-    public override void DoTileAction()
-    {
-            
+        public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
+        {
+            TileName = incomingTileName;
+        }
+
+        public override void DoTileAction()
+        {
+            GameLoop.GetCurrentPlayer().GoToJail();
+        }
     }
 }
