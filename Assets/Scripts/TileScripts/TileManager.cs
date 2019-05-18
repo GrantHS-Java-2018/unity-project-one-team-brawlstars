@@ -13,7 +13,7 @@ namespace TileScripts
     public class TileManager : MonoBehaviour
     {
          public Tile[] gameTiles = new Tile[40];
-        
+
         private void Start()
         {
             gameTiles[0] = new GoTile();
@@ -62,6 +62,8 @@ namespace TileScripts
                 var tileInformationHolder = TileInformation.GetTileInformation(n);
                 gameTiles[n].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3);
             }
+            
+            Player.PointPlayersToTiles(this);
         }
     }
 }

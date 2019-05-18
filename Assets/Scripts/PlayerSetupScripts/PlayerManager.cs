@@ -45,9 +45,8 @@ namespace PlayerSetupScripts
             }
             else //Loads main game scene
             {
-                SceneManager.LoadScene("BoardScene"); 
-            }
-            
+                SceneManager.LoadScene("BoardScene");
+            }     
         }
 
         //Returns ever-changing player array so game can change player information

@@ -6,7 +6,9 @@ using UnityEngine;
 using UnityEngine.Experimental.Audio.Google;
 
 public class GameLoop : MonoBehaviour
-{       
+{
+        public static GameObject tileManager;
+        
         private static Player _currentPlayer;
         
         private static int _currentDieSum;
