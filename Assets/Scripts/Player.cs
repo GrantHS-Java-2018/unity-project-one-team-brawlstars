@@ -36,9 +36,13 @@ public class Player : MonoBehaviour
     
     public void PlaceOnBoard()
     {
+        _currentWaypoint = _tileManager.gameTiles[0].GetTileWaypoint();
+        
         _playerGameObject = new GameObject();
         _playerGameObject.name = "Player " + _playerNumber;
-        
+
+        _playerGameObject.transform.position = _currentWaypoint;
+        _playerGameObject.transform.position.Scale(new Vector3(4f, 4f, 4f));
         
         _playerGameObject.AddComponent<SpriteRenderer>();
         _playerGameObject.GetComponent<SpriteRenderer>().sprite = _tokenSprite;
@@ -57,7 +61,6 @@ public class Player : MonoBehaviour
     public static void PointPlayersToTiles(TileManager tileManager) //Stores tileManager with its tile array for future reference
     {
         _tileManager = tileManager;
-        Debug.Log(_tileManager.gameTiles[39].TileName);
     }
     
     public void SetPlayerToken(Sprite token)
