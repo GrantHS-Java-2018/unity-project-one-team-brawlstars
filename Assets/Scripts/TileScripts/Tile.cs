@@ -9,7 +9,7 @@ namespace TileScripts
     [Serializable]
     public abstract class Tile
     {
-        [SerializeField] public String TileName;
+        public String TileName;
         protected Vector3 TileWaypoint;
 
         public abstract void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues);

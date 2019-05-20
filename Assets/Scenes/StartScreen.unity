@@ -1218,7 +1218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a953f2db0195c154aa4af7aa7d86ed43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 873a3cefddee990499f5961c1690c094, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2235,7 +2235,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d831c967828de345b9a6199f178536b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bc0f373286d61741b516c6256ba2f2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2976,7 +2976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCountDropdown: {fileID: 123622682}
   players: []
-  playerIndex: 0
   tokenSelectionCanvas: {fileID: 1649721463}
 --- !u!4 &2108962891
 Transform:
