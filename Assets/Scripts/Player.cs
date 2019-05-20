@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using TileScripts;
 using UnityEngine;
 using UnityEngine.UI;
+using Vector2 = System.Numerics.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Player : MonoBehaviour
 {
     private static TileManager _tileManager;
-    
-    [SerializeField] private Sprite _tokenSprite;
 
-    [SerializeField] private int boardLocation;
+    private int _playerNumber;
 
     [SerializeField] private int money;
 
@@ -19,6 +20,29 @@ public class Player : MonoBehaviour
     private int _railroadsOwned;
 
     private int _utilitiesOwned;
+    
+    private Vector3 _currentWaypoint;
+        
+    [SerializeField] private int boardLocation;
+    
+    private Sprite _tokenSprite;
+
+    private GameObject _playerGameObject;
+
+    public void SetNumber(int index)
+    {
+        _playerNumber = index;
+    }
+    
+    public void PlaceOnBoard()
+    {
+        _playerGameObject = new GameObject();
+        _playerGameObject.name = "Player " + _playerNumber;
+        
+        
+        _playerGameObject.AddComponent<SpriteRenderer>();
+        _playerGameObject.GetComponent<SpriteRenderer>().sprite = _tokenSprite;
+    }
     
     public int GetRailroadsOwned()
     {
@@ -43,7 +67,14 @@ public class Player : MonoBehaviour
 
     public void Move(int diceSum) //move a number of spaces equal to die sum
     {
-        
+        Vector3 nextWaypoint = _tileManager.gameTiles[boardLocation + 1].GetTileWaypoint();
+        {
+            while (_currentWaypoint != nextWaypoint)
+            {
+                _currentWaypoint = Vector3.MoveTowards(_currentWaypoint, nextWaypoint, 1f);
+            }
+            
+        }
     }
 
     public void Send(int location) //send to a specific location
