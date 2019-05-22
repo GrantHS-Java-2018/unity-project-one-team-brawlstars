@@ -21,7 +21,7 @@ namespace PlayerSetupScripts
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
                 gameObject.SetActive(false);
-                playerArrayHolster.GetComponent<PlayerManager>().AssignToken(gameObject.GetComponent<SpriteRenderer>().sprite);
+                PlayerManager.AssignToken(gameObject.GetComponent<SpriteRenderer>().sprite);
             }
         }
     }

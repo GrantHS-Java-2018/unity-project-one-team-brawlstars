@@ -19,7 +19,7 @@ namespace TileScripts.PurchasableTiles
         
         public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
         {
-            TileName = incomingTileName;
+            tileName = incomingTileName;
             TileWaypoint = incomingTileWaypoint;
             PurchasePrice = incomingTileValues[0];
             MortgageDividend = incomingTileValues[1];

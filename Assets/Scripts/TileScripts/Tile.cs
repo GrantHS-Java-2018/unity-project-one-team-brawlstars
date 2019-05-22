@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using GameInformation;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TileScripts
 {
     [Serializable]
     public abstract class Tile
     {
-        public String TileName;
+        [FormerlySerializedAs("TileName")] public String tileName;
         protected Vector3 TileWaypoint;
 
         public Vector3 GetTileWaypoint()

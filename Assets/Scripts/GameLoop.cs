@@ -6,27 +6,24 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.Audio.Google;
 
-public class GameLoop : MonoBehaviour
-{
-        public static GameObject tileManager;
-        
-        private GameObject _playerManager;
+public static class GameLoop
+{        
+        private static GameObject _playerHolster;
         
         private static Player _currentPlayer;
         
         private static int _currentDieSum;
 
-        
-
-        public void Start()
+        public static void SetUpGameLoop()
         {
-                _playerManager = GameObject.Find("PlayerHolster");
-                Player[] playerArray = _playerManager.GetComponent<PlayerManager>().GetPlayers();
-                for (int n = 0; n < playerArray.Length; n++)
-                {
-                        playerArray[n].SetNumber(n + 1);
-                        playerArray[n].PlaceOnBoard();
-                }
+                _playerHolster = GameObject.Find("PlayerHolster");
+                
+                
+        }
+
+        public static GameObject GetPlayerHolster()
+        {
+                return _playerHolster;
         }
         
         public static Player GetCurrentPlayer()
