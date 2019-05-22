@@ -8,9 +8,12 @@ namespace PlayerSetupScripts
 {
     public class PlayerSetupController : MonoBehaviour
     {
-        void Start()
+        [SerializeField] private GameObject tokenSelectionCanvas;
+
+        public void SetUpPlayerManagerPointer()
         {
-            PlayerManager.SetUpPlayerManager();
+            tokenSelectionCanvas.SetActive(true);
+            PlayerManager.SetUpPlayerManager(tokenSelectionCanvas);
         }
     }
 }

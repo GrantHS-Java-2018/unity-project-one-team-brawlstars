@@ -8,8 +8,6 @@ namespace PlayerSetupScripts
 {
     public class TokenClickDetector : MonoBehaviour
     {   
-        [SerializeField] private GameObject playerArrayHolster; //Game object that permanently holds player manager
-        
         void Start()
         {
             gameObject.SetActive(false);

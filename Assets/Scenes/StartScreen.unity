@@ -306,7 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &32808461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -657,7 +656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &210742291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -886,7 +884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &240108977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1006,7 +1003,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &286044638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1241,7 +1237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &492551662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1435,7 +1430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &668094799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2084,7 +2078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1649721464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2258,7 +2252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &1686133447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2378,7 +2371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275939520445e31478b59c61155a1977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerArrayHolster: {fileID: 2108962889}
 --- !u!61 &1792286216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2796,17 +2788,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: fa15f14469421d640a312e91a0514c09, type: 3}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1483937030}
         m_MethodName: SetTokenActives
         m_Mode: 6
@@ -2839,6 +2820,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2108962890}
+        m_MethodName: SetUpPlayerManagerPointer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -2956,7 +2948,7 @@ GameObject:
   - component: {fileID: 2108962891}
   - component: {fileID: 2108962890}
   m_Layer: 0
-  m_Name: PlayerHolster
+  m_Name: SceneController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2971,11 +2963,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2108962889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa15f14469421d640a312e91a0514c09, type: 3}
+  m_Script: {fileID: 11500000, guid: 3edc24de2ec8b0542afc34aa7dc04e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCountDropdown: {fileID: 123622682}
-  players: []
   tokenSelectionCanvas: {fileID: 1649721463}
 --- !u!4 &2108962891
 Transform:

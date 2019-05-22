@@ -17,10 +17,12 @@ namespace PlayerSetupScripts
 
         private static GameObject _sceneController;
 
+        private static int _playerIndex;
+
         //Initializes the player array in the beginning of the game
-        public static void SetUpPlayerManager()
+        public static void SetUpPlayerManager(GameObject incomingTokenSelectionCanvas)
         {
-            _tokenSelectionCanvas = GameObject.Find("TokenSelectionCanvas");
+            _tokenSelectionCanvas = incomingTokenSelectionCanvas;
             _playerCountDropdown = GameObject.Find("Dropdown").GetComponent<Dropdown>();
             _sceneController = GameObject.Find("SceneController");
             
@@ -34,13 +36,12 @@ namespace PlayerSetupScripts
         //Simply assigns a token to a player in the start screen (triggers from TokenClickDetector)
         public static void AssignToken(Sprite assignedToken)
         {
-            int playerIndex = 0;
              //Exists to keep track of player that we are assigning token sprite too
-            _players[playerIndex].SetPlayerToken(assignedToken); 
-            playerIndex += 1;
-            if (playerIndex < _playerCountDropdown.value + 2)
+            _players[_playerIndex].SetPlayerToken(assignedToken); 
+            _playerIndex += 1;
+            if (_playerIndex < _playerCountDropdown.value + 2)
             {
-                _tokenSelectionCanvas.GetComponentInChildren<Text>().text = "Player " + (playerIndex + 1) + ", pick a token"; //Changes prompt text to prompt next player to choose token
+                _tokenSelectionCanvas.GetComponentInChildren<Text>().text = "Player " + (_playerIndex + 1) + ", pick a token"; //Changes prompt text to prompt next player to choose token
             }
             else //Loads main game scene
             {
