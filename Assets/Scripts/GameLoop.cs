@@ -17,8 +17,6 @@ public static class GameLoop
         public static void SetUpGameLoop()
         {
                 _playerHolster = GameObject.Find("PlayerHolster");
-                
-                
         }
 
         public static GameObject GetPlayerHolster()

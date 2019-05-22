@@ -9,7 +9,8 @@ using UnityEngine.UI;
 using Vector2 = System.Numerics.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class Player : MonoBehaviour
+[System.Serializable]
+public class Player
 {
     private static Tile[] _tileArray;
 
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     
     private Sprite _tokenSprite;
 
-    [FormerlySerializedAs("_playerGameObject")] [SerializeField] private GameObject playerGameObject;
+    [SerializeField] private GameObject playerGameObject;
 
     public void SetNumber(int playerIndex)
     {
@@ -41,16 +42,9 @@ public class Player : MonoBehaviour
         _tokenSprite = token;
     }
     
-    public static void SetUpPlayers()
+    public void SetTileManager()
     {
         _tileArray = TileManager.GetAllTiles();
-        
-        Player[] playerArray = PlayerManager.GetPlayers();
-        for (int n = 0; n < playerArray.Length; n++)
-        {
-            playerArray[n].SetNumber(n + 1);
-            playerArray[n].PlaceOnBoard();
-        }
     }
     
     public void PlaceOnBoard()
@@ -61,7 +55,7 @@ public class Player : MonoBehaviour
         playerGameObject.name = "Player " + _playerNumber;
 
         playerGameObject.transform.position = _currentWaypoint;
-        playerGameObject.transform.position.Scale(new Vector3(4f, 4f, 4f));
+        playerGameObject.transform.localScale = new Vector3(4f, 4f, 4f);
         
         playerGameObject.AddComponent<SpriteRenderer>();
         playerGameObject.GetComponent<SpriteRenderer>().sprite = _tokenSprite;

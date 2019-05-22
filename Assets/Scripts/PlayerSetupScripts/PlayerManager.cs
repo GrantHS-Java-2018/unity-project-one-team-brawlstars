@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TileScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,7 +30,17 @@ namespace PlayerSetupScripts
             _players = new Player[_playerCountDropdown.value + 2];
             for (int n = 0; n < _playerCountDropdown.value + 2; n++)
             {
-                _players[n] = _sceneController.AddComponent<Player>();
+                _players[n] = new Player();
+            }
+        }
+
+        public static void PlacePlayersOnBoard()
+        {
+            for (int n = 0; n < _players.Length; n++)
+            {
+                _players[n].SetTileManager();
+                _players[n].SetNumber(n + 1);
+                _players[n].PlaceOnBoard();
             }
         }
         

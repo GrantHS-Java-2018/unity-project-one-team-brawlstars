@@ -10,6 +10,6 @@ public class GameSetup : MonoBehaviour
     {
         GameLoop.SetUpGameLoop();
         TileManager.SetUpTiles();
-        /*PlayerManager.SetUpPlayers();*/
+        PlayerManager.PlacePlayersOnBoard();
     }
 }
