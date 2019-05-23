@@ -8,10 +8,10 @@ namespace TileScripts.SpecialTiles
 {
     public class CardDeckTile : Tile
     {
-        public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
+        public override void SetUpTile(String incomingTileName, Vector3 incomingTilePosition, int[] incomingTileValues)
         {
             tileName = incomingTileName;
-            TileWaypoint = incomingTileWaypoint;
+            TilePosition = incomingTilePosition;
             //Here needs to go a way of setting the deck to either community chest or chance first value 0 is chance, 1 is community chest
             //To do this, maybe create a deck class and a gameObject that holds a deck array with 2 deck scripts with indexes 0 and 1
             //Decks should have card array and shuffle and deal methods

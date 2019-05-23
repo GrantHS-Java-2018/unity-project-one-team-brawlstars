@@ -12,10 +12,10 @@ namespace TileScripts.SpecialTiles
         private int _taxAmount;
         
         
-        public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
+        public override void SetUpTile(String incomingTileName, Vector3 incomingTilePosition, int[] incomingTileValues)
         {
             tileName = incomingTileName;
-            TileWaypoint = incomingTileWaypoint;
+            TilePosition = incomingTilePosition;
             _taxAmount = incomingTileValues[0];
         }
 

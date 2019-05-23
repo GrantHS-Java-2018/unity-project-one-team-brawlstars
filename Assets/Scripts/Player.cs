@@ -52,7 +52,7 @@ public class Player
     
     public void PlaceOnBoard()
     {
-        _currentPosition = _tileArray[0].GetTileWaypoint();
+        _currentPosition = _tileArray[0].GetTilePosition();
         playerMovementObject = GameObject.Find("PlayerMovement").GetComponent<PlayerMovement>();
         
         playerGameObject = new GameObject();
@@ -72,20 +72,24 @@ public class Player
 
     public IEnumerator MoveCoroutine(int diceSum)
     {
-        Vector3 nextWaypoint = _tileArray[currentWaypoint + diceSum].GetTileWaypoint();
-        while (_currentPosition != nextWaypoint)
+        Vector3 finalPosition = _tileArray[currentWaypoint + diceSum].GetTilePosition();
+        while (_currentPosition != finalPosition)
         {
-            _currentPosition = Vector3.MoveTowards(_currentPosition, nextWaypoint, 1f);
-            UpdatePosition();
-            yield return null;
+            Vector3 nextPosition = TileManager.GetAllTiles()[currentWaypoint + 1].GetTilePosition();
+            while (_currentPosition != nextPosition)
+            {
+                _currentPosition = Vector3.MoveTowards(_currentPosition, nextPosition, 1f);
+                UpdatePosition();
+                yield return null;
+            }
         }
+        
         currentWaypoint = currentWaypoint + diceSum;
-        playerMovementObject.MoveFinished();
     }
 
     public void SendCoroutine(int location) //send to a specific location
     {
-        
+         
     }
     
     public void GoToJail() //send to jail, RIGHT THROUGH BOARD, DO NOT PASS OTHER TILES

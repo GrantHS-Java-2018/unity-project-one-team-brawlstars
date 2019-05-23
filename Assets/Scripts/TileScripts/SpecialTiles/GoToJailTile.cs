@@ -8,10 +8,10 @@ namespace TileScripts.SpecialTiles
 {
     public class GoToJailTile : Tile
     {
-        public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
+        public override void SetUpTile(String incomingTileName, Vector3 incomingTilePosition, int[] incomingTileValues)
         {
             tileName = incomingTileName;
-            TileWaypoint = incomingTileWaypoint;
+            TilePosition = incomingTilePosition;
         }
 
         public override void DoTileAction()

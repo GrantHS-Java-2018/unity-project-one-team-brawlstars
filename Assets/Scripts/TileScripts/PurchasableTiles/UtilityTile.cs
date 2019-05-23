@@ -8,10 +8,10 @@ namespace TileScripts.PurchasableTiles
 {
     public class UtilityTile : PropertyTile
     {
-        public override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues)
+        public override void SetUpTile(String incomingTileName, Vector3 incomingTilePosition, int[] incomingTileValues)
         {
             tileName = incomingTileName;
-            TileWaypoint = incomingTileWaypoint;
+            TilePosition = incomingTilePosition;
             PurchasePrice = incomingTileValues[0];
             MortgageDividend = incomingTileValues[1];
         }

@@ -11,11 +11,11 @@ namespace TileScripts
     public abstract class Tile
     {
         [FormerlySerializedAs("TileName")] public String tileName;
-        protected Vector3 TileWaypoint;
+        protected Vector3 TilePosition;
 
-        public Vector3 GetTileWaypoint()
+        public Vector3 GetTilePosition()
         {
-            return TileWaypoint;
+            return TilePosition;
         }
 
         public abstract void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues);

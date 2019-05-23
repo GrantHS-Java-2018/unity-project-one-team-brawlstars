@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Player[] playerArray;
-
-    private bool _moveAllowed;
-    
+    [SerializeField] private Player[] playerArray;    
     void Start()
     {
         playerArray = PlayerManager.GetPlayers();
@@ -18,15 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
-        if (_moveAllowed)
-        {
-            StartCoroutine(GameLoop.GetCurrentPlayer().MoveCoroutine(GameLoop.GetCurrentDieSum()));
-            _moveAllowed = false;
-        }
-    }
-
-    public void MoveFinished()
-    {
-        _moveAllowed = true;
+        StartCoroutine(GameLoop.GetCurrentPlayer().MoveCoroutine(GameLoop.GetCurrentDieSum()));
     }
 }
