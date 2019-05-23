@@ -4,6 +4,7 @@ using System.Numerics;
 using PlayerSetupScripts;
 using TileScripts;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Vector2 = System.Numerics.Vector2;
@@ -24,9 +25,9 @@ public class Player
 
     private int _utilitiesOwned;
     
-    private Vector3 _currentWaypoint;
+    [SerializeField] private Vector3 _currentPosition;
         
-    [SerializeField] private int boardLocation;
+    [SerializeField] private int currentWaypoint;
     
     private Sprite _tokenSprite;
 
@@ -49,27 +50,33 @@ public class Player
     
     public void PlaceOnBoard()
     {
-        _currentWaypoint = _tileArray[0].GetTileWaypoint();
+        _currentPosition = _tileArray[0].GetTileWaypoint();
         
         playerGameObject = new GameObject();
         playerGameObject.name = "Player " + _playerNumber;
 
-        playerGameObject.transform.position = _currentWaypoint;
+        playerGameObject.transform.position = _currentPosition;
         playerGameObject.transform.localScale = new Vector3(4f, 4f, 4f);
         
         playerGameObject.AddComponent<SpriteRenderer>();
         playerGameObject.GetComponent<SpriteRenderer>().sprite = _tokenSprite;
     }
-    
-    public void Move(int diceSum) //move a number of spaces equal to die sum
+
+    public void UpdatePosition()
     {
-        Vector3 nextWaypoint = _tileArray[boardLocation + 1].GetTileWaypoint();
+        playerGameObject.transform.position = _currentPosition;
+    }
+
+    public IEnumerator MoveCoroutine(int diceSum)
+    {
+        Vector3 nextWaypoint = _tileArray[currentWaypoint + diceSum].GetTileWaypoint();
+        while (_currentPosition != nextWaypoint)
         {
-            while (_currentWaypoint != nextWaypoint)
-            {
-                _currentWaypoint = Vector3.MoveTowards(_currentWaypoint, nextWaypoint, 1f);
-            }
+            _currentPosition = Vector3.MoveTowards(_currentPosition, nextWaypoint, 1f);
+            UpdatePosition();
+            yield return null;
         }
+        currentWaypoint = currentWaypoint + diceSum;
     }
 
     public void Send(int location) //send to a specific location
