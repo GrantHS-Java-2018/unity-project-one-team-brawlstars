@@ -4,9 +4,12 @@ using PlayerSetupScripts;
 using TileScripts;
 using UnityEngine;
 
-public class ShowPlayerArray : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Player[] playerArray;
+
+    private bool _moveAllowed;
+    
     void Start()
     {
         playerArray = PlayerManager.GetPlayers();
@@ -15,6 +18,15 @@ public class ShowPlayerArray : MonoBehaviour
 
     public void MovePlayer()
     {
-        StartCoroutine(playerArray[1].MoveCoroutine(3));
+        if (_moveAllowed)
+        {
+            StartCoroutine(GameLoop.GetCurrentPlayer().MoveCoroutine(GameLoop.GetCurrentDieSum()));
+            _moveAllowed = false;
+        }
+    }
+
+    public void MoveFinished()
+    {
+        _moveAllowed = true;
     }
 }

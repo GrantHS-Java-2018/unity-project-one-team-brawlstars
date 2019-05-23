@@ -307,7 +307,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 546505892}
         m_MethodName: MovePlayer
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 546505893}
   - component: {fileID: 546505892}
   m_Layer: 0
-  m_Name: PlayerVisualiser
+  m_Name: PlayerMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

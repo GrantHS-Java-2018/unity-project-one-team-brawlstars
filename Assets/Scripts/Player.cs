@@ -33,6 +33,8 @@ public class Player
 
     [SerializeField] private GameObject playerGameObject;
 
+    [SerializeField] private PlayerMovement playerMovementObject;
+
     public void SetNumber(int playerIndex)
     {
         _playerNumber = playerIndex;
@@ -51,6 +53,7 @@ public class Player
     public void PlaceOnBoard()
     {
         _currentPosition = _tileArray[0].GetTileWaypoint();
+        playerMovementObject = GameObject.Find("PlayerMovement").GetComponent<PlayerMovement>();
         
         playerGameObject = new GameObject();
         playerGameObject.name = "Player " + _playerNumber;
@@ -77,9 +80,10 @@ public class Player
             yield return null;
         }
         currentWaypoint = currentWaypoint + diceSum;
+        playerMovementObject.MoveFinished();
     }
 
-    public void Send(int location) //send to a specific location
+    public void SendCoroutine(int location) //send to a specific location
     {
         
     }

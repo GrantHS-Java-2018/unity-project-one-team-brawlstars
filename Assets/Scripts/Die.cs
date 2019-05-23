@@ -3,17 +3,10 @@ using UnityEngine;
 
 public class Die : MonoBehaviour
 {
-    public int dieSideThrown = 0;
+    public int dieSideThrown;
     private Sprite[] _diceSides;
     private SpriteRenderer _rend;
     private bool _coroutineAllowed = true;
-
-
-
-    private void Update()
-    {
-        
-    }
 
     public void Start()
     {
