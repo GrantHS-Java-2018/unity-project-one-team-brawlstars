@@ -16,6 +16,13 @@ public static class GameLoop
 
         private static Text _actionPromptText;
 
+        private static bool endTurn = false;
+
+        public static void EndTurn()
+        {
+                endTurn = true;
+        }
+
         public static Player GetCurrentPlayer()
         {
                 return _currentPlayer;
@@ -56,12 +63,10 @@ public static class GameLoop
         
         public static void StartGameLoop()
         {
-                bool gameOver = false;
-                /*while (!gameOver)
-                {
-                        StartTurn(GetNextPlayer());
-                        //put something here to make sure that the game waits till the turn is over to start the next turn
-                        //This is an infinite loop until we put a block here that limits it to only go after a player ends their turn
-                }*/
+                StartTurn(GetNextPlayer());
+                endTurn = false;
+                //put something here to make sure that the game waits till the turn is over to start the next turn
+                ////This is an infinite loop until we put a block here that limits it to only go after a player ends their turn
+              
         }
 }
