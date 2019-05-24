@@ -36,7 +36,7 @@ namespace PlayerSetupScripts
             for (int n = 0; n < _players.Length; n++)
             {
                 _players[n].SetTileManager();
-                _players[n].SetNumber(n + 1);
+                _players[n].SetNumber(n);
                 _players[n].PlaceOnBoard();
             }
         }

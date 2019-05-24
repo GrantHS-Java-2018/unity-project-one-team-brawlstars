@@ -15,7 +15,7 @@ public class Player
 {
     private static Tile[] _tileArray;
 
-    private int _playerNumber;
+    [SerializeField] private int _playerNumber;
 
     [SerializeField] private int money;
 

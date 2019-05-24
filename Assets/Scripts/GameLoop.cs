@@ -7,7 +7,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public static class GameLoop
-{        
+{
+        private static Button _endTurnButton;
+
+        private static Button _rollButton;
+        
         private static GameObject _playerHolster;
         
         private static Player _currentPlayer;
@@ -15,14 +19,7 @@ public static class GameLoop
         private static int _currentDieSum;
 
         private static Text _actionPromptText;
-
-        private static bool endTurn = false;
-
-        public static void EndTurn()
-        {
-                endTurn = true;
-        }
-
+        
         public static Player GetCurrentPlayer()
         {
                 return _currentPlayer;
@@ -37,21 +34,31 @@ public static class GameLoop
         {
                 _actionPromptText = GameObject.Find("PromptTextCanvas").GetComponentInChildren<Text>();
                 _currentPlayer = PlayerManager.GetPlayers()[0];
+                _rollButton = GameObject.Find("RollButton").GetComponent<Button>();
+                _endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
                 
-                StartGameLoop();
+                StartTurn(GetNextPlayer());
         }
         
         private static void StartTurn(Player nextPlayer)
         {
+                _rollButton.interactable = true;
                 _currentPlayer = nextPlayer;
                 _currentDieSum = 0;
                 _actionPromptText.text = "Player " + nextPlayer.GetNumber() + "'s turn";
         }
 
+        public static void EndTurn()
+        {
+                StartTurn(GetNextPlayer());
+        }
+
         private static Player GetNextPlayer()
         {
                 Player[] playerArray = PlayerManager.GetPlayers();
-                if (_currentPlayer.GetNumber() + 1 == playerArray.Length)
+                Debug.Log(_currentPlayer.GetNumber());
+                Debug.Log("Length: " + playerArray.Length);
+                if (_currentPlayer.GetNumber() == playerArray.Length)
                 {
                         return playerArray[0];
                 }
@@ -59,14 +66,5 @@ public static class GameLoop
                 {
                         return playerArray[_currentPlayer.GetNumber() + 1];
                 }
-        }
-        
-        public static void StartGameLoop()
-        {
-                StartTurn(GetNextPlayer());
-                endTurn = false;
-                //put something here to make sure that the game waits till the turn is over to start the next turn
-                ////This is an infinite loop until we put a block here that limits it to only go after a player ends their turn
-              
         }
 }
