@@ -8,13 +8,17 @@ namespace Scripts.CardScripts
     {
         private int num;
         private int type;
+        public int[] CommunityChest = new int[16];
+        public int[] Chance = new int[16];
+      
 
         public Card(int num, int type)
         {
             this.num = num;
             this.type = type;
         }
-        public 
+
+   
 
 
 
