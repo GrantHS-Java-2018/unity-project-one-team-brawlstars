@@ -6,11 +6,18 @@ namespace Scripts.CardScripts
 {
     public abstract class Card : MonoBehaviour
     {
+        private int num;
+        private int type;
 
-        public int cat { get; set; }
-        public abstract int activate(int[] amount);
-        public abstract int activate();
-        public abstract int activate(int cardMoney);
+        public Card(int num, int type)
+        {
+            this.num = num;
+            this.type = type;
+        }
+        public 
+
+
+
     }
 
 }
