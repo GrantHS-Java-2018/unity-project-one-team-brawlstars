@@ -4,7 +4,7 @@ using PlayerSetupScripts;
 using TileScripts;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Experimental.Audio.Google;
+using UnityEngine.UI;
 
 public static class GameLoop
 {        
@@ -14,16 +14,8 @@ public static class GameLoop
         
         private static int _currentDieSum;
 
-        public static void SetUpGameLoop()
-        {
-                _playerHolster = GameObject.Find("PlayerHolster");
-        }
+        private static Text _actionPromptText;
 
-        public static GameObject GetPlayerHolster()
-        {
-                return _playerHolster;
-        }
-        
         public static Player GetCurrentPlayer()
         {
                 return _currentPlayer;
@@ -33,9 +25,43 @@ public static class GameLoop
         {
                 return _currentDieSum;
         }
+
+        public static void SetUpGameLoop()
+        {
+                _actionPromptText = GameObject.Find("PromptTextCanvas").GetComponentInChildren<Text>();
+                _currentPlayer = PlayerManager.GetPlayers()[0];
+                
+                StartGameLoop();
+        }
         
         private static void StartTurn(Player nextPlayer)
         {
                 _currentPlayer = nextPlayer;
+                _currentDieSum = 0;
+                _actionPromptText.text = "Player " + nextPlayer.GetNumber() + "'s turn";
+        }
+
+        private static Player GetNextPlayer()
+        {
+                Player[] playerArray = PlayerManager.GetPlayers();
+                if (_currentPlayer.GetNumber() + 1 == playerArray.Length)
+                {
+                        return playerArray[0];
+                }
+                else
+                {
+                        return playerArray[_currentPlayer.GetNumber() + 1];
+                }
+        }
+        
+        public static void StartGameLoop()
+        {
+                bool gameOver = false;
+                /*while (!gameOver)
+                {
+                        StartTurn(GetNextPlayer());
+                        //put something here to make sure that the game waits till the turn is over to start the next turn
+                        //This is an infinite loop until we put a block here that limits it to only go after a player ends their turn
+                }*/
         }
 }

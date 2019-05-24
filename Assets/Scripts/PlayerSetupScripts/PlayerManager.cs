@@ -16,8 +16,6 @@ namespace PlayerSetupScripts
 
         private static GameObject _tokenSelectionCanvas;//Canvas on which tokens are clicked and selected by players
 
-        private static GameObject _sceneController;
-
         private static int _playerIndex;
 
         //Initializes the player array in the beginning of the game
@@ -25,7 +23,6 @@ namespace PlayerSetupScripts
         {
             _tokenSelectionCanvas = incomingTokenSelectionCanvas;
             _playerCountDropdown = GameObject.Find("Dropdown").GetComponent<Dropdown>();
-            _sceneController = GameObject.Find("SceneController");
             
             _players = new Player[_playerCountDropdown.value + 2];
             for (int n = 0; n < _playerCountDropdown.value + 2; n++)
@@ -65,7 +62,5 @@ namespace PlayerSetupScripts
         {
             return _players;
         }
-
-        
     }
 }

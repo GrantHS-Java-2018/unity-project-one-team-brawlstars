@@ -37,7 +37,12 @@ public class Player
 
     public void SetNumber(int playerIndex)
     {
-        _playerNumber = playerIndex;
+        _playerNumber = playerIndex + 1;
+    }
+
+    public int GetNumber()
+    {
+        return _playerNumber;
     }
     
     public void SetPlayerToken(Sprite token)
@@ -59,7 +64,7 @@ public class Player
         playerGameObject.name = "Player " + _playerNumber;
 
         playerGameObject.transform.position = _currentPosition;
-        playerGameObject.transform.localScale = new Vector3(4f, 4f, 4f);
+        playerGameObject.transform.localScale = new Vector3(8f, 8f, 8f);
         
         playerGameObject.AddComponent<SpriteRenderer>();
         playerGameObject.GetComponent<SpriteRenderer>().sprite = _tokenSprite;
@@ -70,21 +75,37 @@ public class Player
         playerGameObject.transform.position = _currentPosition;
     }
 
+    public int GetNextMovementWaypoint(int movementAmount)
+    {
+        int waypoint;
+        if (currentWaypoint + movementAmount > 39)
+        {
+            waypoint = currentWaypoint + movementAmount - 40;
+        }
+        else
+        {
+            waypoint = currentWaypoint + movementAmount;
+        }
+
+        return waypoint;
+    }
+
     public IEnumerator MoveCoroutine(int diceSum)
     {
-        Vector3 finalPosition = _tileArray[currentWaypoint + diceSum].GetTilePosition();
+        Vector3 finalPosition = TileManager.GetTile(GetNextMovementWaypoint(diceSum)).GetTilePosition();
+        
         while (_currentPosition != finalPosition)
-        {
-            Vector3 nextPosition = TileManager.GetAllTiles()[currentWaypoint + 1].GetTilePosition();
+        {   
+            Vector3 nextPosition = TileManager.GetTile(GetNextMovementWaypoint(1)).GetTilePosition();
+            
             while (_currentPosition != nextPosition)
             {
-                _currentPosition = Vector3.MoveTowards(_currentPosition, nextPosition, 1f);
+                _currentPosition = Vector3.MoveTowards(_currentPosition, nextPosition, 10f);
                 UpdatePosition();
                 yield return null;
             }
+            currentWaypoint = GetNextMovementWaypoint(1);
         }
-        
-        currentWaypoint = currentWaypoint + diceSum;
     }
 
     public void SendCoroutine(int location) //send to a specific location
