@@ -8,9 +8,15 @@ using UnityEngine.UI;
 
 public static class GameLoop
 {
-        private static Button _endTurnButton;
+        
+        
+        private static bool _endTurnButtonOn;
 
-        private static Button _rollButton;
+        private static bool _rollButtonOn;
+
+        private static Button[] _gameButtons;
+
+        private static bool[] _gameButtonsOn;
         
         private static GameObject _playerHolster;
         
@@ -34,8 +40,13 @@ public static class GameLoop
         {
                 _actionPromptText = GameObject.Find("PromptTextCanvas").GetComponentInChildren<Text>();
                 _currentPlayer = PlayerManager.GetPlayers()[0];
-                _rollButton = GameObject.Find("RollButton").GetComponent<Button>();
-                _endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
+                
+                _gameButtons = new Button[5];
+                _gameButtons[0] = GameObject.Find("RollButton").GetComponent<Button>(); //Roll button
+                _gameButtons[1] = GameObject.Find("EndTurnButton").GetComponent<Button>(); //End turn button
+                //add game buttons as they are added to the UI
+
+                _gameButtonsOn = new bool[5];
                 
                 StartTurn(GetNextPlayer());
         }
@@ -44,7 +55,7 @@ public static class GameLoop
         {
                 /*_endTurnButton.interactable = false;*/ //uncomment this when we have a way to determine if a turn is over and reactivate the end turn button
                 _currentDieSum = 0;
-                _rollButton.interactable = true;
+                _gameButtons[0].interactable = true;
                 _currentPlayer = nextPlayer;
                 _actionPromptText.text = "Player " + nextPlayer.GetNumber() + "'s turn";
         }
@@ -64,6 +75,27 @@ public static class GameLoop
                 else
                 {
                         return playerArray[_currentPlayer.GetNumber()];
+                }
+        }
+
+        public static void DeactivateGameButtons()
+        {
+                for (int n = 0; n < 2; n++)
+                {
+                        _gameButtonsOn[n] = _gameButtons[n].IsInteractable();
+                }
+                
+                for (int n = 0; n < 2; n++)
+                {
+                        _gameButtons[n].interactable = false;
+                }
+        }
+
+        public static void ActivateGameButtons()
+        {
+                for (int n = 0; n < 2; n++)
+                {
+                        _gameButtons[n].interactable = _gameButtonsOn[n];
                 }
         }
 }
