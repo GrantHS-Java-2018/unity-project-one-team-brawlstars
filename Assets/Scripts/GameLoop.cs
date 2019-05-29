@@ -42,9 +42,10 @@ public static class GameLoop
         
         private static void StartTurn(Player nextPlayer)
         {
+                /*_endTurnButton.interactable = false;*/ //uncomment this when we have a way to determine if a turn is over and reactivate the end turn button
+                _currentDieSum = 0;
                 _rollButton.interactable = true;
                 _currentPlayer = nextPlayer;
-                _currentDieSum = 0;
                 _actionPromptText.text = "Player " + nextPlayer.GetNumber() + "'s turn";
         }
 
@@ -56,15 +57,13 @@ public static class GameLoop
         private static Player GetNextPlayer()
         {
                 Player[] playerArray = PlayerManager.GetPlayers();
-                Debug.Log(_currentPlayer.GetNumber());
-                Debug.Log("Length: " + playerArray.Length);
                 if (_currentPlayer.GetNumber() == playerArray.Length)
                 {
                         return playerArray[0];
                 }
                 else
                 {
-                        return playerArray[_currentPlayer.GetNumber() + 1];
+                        return playerArray[_currentPlayer.GetNumber()];
                 }
         }
 }

@@ -9,7 +9,7 @@ public class GameSetup : MonoBehaviour
     void Start()
     {
         TileManager.SetUpTiles();
-        GameLoop.SetUpGameLoop();
         PlayerManager.PlacePlayersOnBoard();
+        GameLoop.SetUpGameLoop();
     }
 }
