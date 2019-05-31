@@ -6,24 +6,39 @@ namespace Scripts.CardScripts
 {
     public abstract class Card : MonoBehaviour
     {
-        private int num;
-        private int type;
-        public int[] CommunityChest = new int[16];
-        public int[] Chance = new int[16];
-      
+        private int cardCat;
+        private int cardValue;
+        private int[] Cat = {1, 2, 3, 4, 5};
+        private int[] Value = {44,45,43,345,4,8};
 
-        public Card(int num, int type)
+        public Card(int cat, int value)
         {
-            this.num = num;
-            this.type = type;
-        }
 
-   
+            cardCat = cat;
+
+            cardValue = value;
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     }
-
 }
+
+
 
 
