@@ -48,7 +48,8 @@ public static class GameLoop
 
                 _gameButtonsOn = new bool[5];
                 
-                StartTurn(GetNextPlayer());
+                StartTurn(_currentPlayer);
+                
         }
         
         private static void StartTurn(Player nextPlayer)
