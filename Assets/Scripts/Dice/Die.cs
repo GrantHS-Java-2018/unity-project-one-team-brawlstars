@@ -12,51 +12,44 @@ public class Die : MonoBehaviour
     public int roll;
   
 
-
-
-    private void Update()
-    {
-      
-    }
-
-    public void Start()
+    public void Start()  //Renders sprite and puts them in an array
     {
         rend = GetComponent<SpriteRenderer>();
         diceSides = Resources.LoadAll<Sprite>("Sprites/DiceSides/");
-        rend.sprite = diceSides[5];
+        rend.sprite = diceSides[5];        
     }
 
-    public void ClickButton()
+    public void ClickButton() //When the button is clicked
     {
-        if (coroutineAllowed)
-            StartCoroutine(RollTheDice());
+        if (coroutineAllowed)   //always true at start
+            StartCoroutine(RollTheDice()); //Begins roll the dice method
     }
 
     private IEnumerator RollTheDice()
     {
-        coroutineAllowed = false;
+        coroutineAllowed = false; //makes the coroutine false so you can't countinually role
         int randomDiceSide = 0;
-        for (int i = 0; i <= 20; i++)
+        for (int i = 0; i <= 20; i++) //for loop cycles between random die side sprites
         {
-            randomDiceSide = Random.Range(0, 6);
-            rend.sprite = diceSides[randomDiceSide];
-            yield return new WaitForSeconds(0.05f);
+            randomDiceSide = Random.Range(0, 6); //random sides
+            rend.sprite = diceSides[randomDiceSide]; //render the random sprite
+            yield return new WaitForSeconds(0.05f); //wait between sprite renders
         }
       
       
-        dieSideThrown = randomDiceSide + 1;
-        if (dieNum == 1)
+        dieSideThrown = randomDiceSide + 1; //assigns the end side to the corresponding value
+        if (dieNum == 1) 
         {
-            dieManager.GetComponent<DieManagement>().num1 = dieSideThrown;
+            dieManager.GetComponent<DieManagement>().num1 = dieSideThrown; //gives die one a value
         }
         else
         {
-            dieManager.GetComponent<DieManagement>().num2 = dieSideThrown;
+            dieManager.GetComponent<DieManagement>().num2 = dieSideThrown; //give die two a value
         }
 
-        dieManager.GetComponent<DieManagement>().RollCalculation();
+        dieManager.GetComponent<DieManagement>().RollCalculation(); //Gives roll a sum (in diemanagment class)
 
-        coroutineAllowed = true;
+        coroutineAllowed = true;//allows dice to be rolled again
       
       
       

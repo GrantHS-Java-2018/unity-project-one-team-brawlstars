@@ -6,18 +6,30 @@ public class SetUpProperty : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject pcamera;
+    private Sprite[] Props;
+    private SpriteRenderer rend;
+    private Vector3 tempPosition1 = new Vector3( -768f * 512f, 450f, 0f);
     void Start()
     {
-        GameObject.Find("Property Camera").transform.position = new Vector3(0, 2000, 0);
-        PropertyCamera.depth = Camera.main.depth + 1;
-        dieManager.GetComponent<DieManagement>().num2 = dieSideThrown;
-        
+        rend = GetComponent<SpriteRenderer>();
+        Props = Resources.LoadAll<Sprite>("Sprites/Deeds/");
+        rend.sprite = Props[22];  
+
     }
+
+    private void loadProps()
+    {
+        rend.sprite = Props[3];
+        Props[3].transform.position = tempPosition1;
+       
+    }
+    
+    
 
     // Update is called once per frame
     void Update()
     {
+        
         
     }
 }
