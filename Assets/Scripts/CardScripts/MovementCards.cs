@@ -4,15 +4,21 @@ using Scripts.CardScripts;
 using TileScripts;
 using UnityEngine;
 
-public class MovementCards : Card
+namespace Scripts.CardScripts
 {
-    public override void SetUpCard(int[] incomingTileValues)
-    {
-        
-    }
+    public class MovementCards : Card
 
-    public override void DoCardAction()
     {
-        
+        private int cardWaypoint;
+
+        public override void SetUpCard(int incomingCardValues)
+        {
+            cardWaypoint = incomingCardValues;
+        }
+
+        public override void DoCardAction()
+        {
+
+        }
     }
 }

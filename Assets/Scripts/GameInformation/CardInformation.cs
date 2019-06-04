@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class CardInformation : MonoBehaviour
 {
-        public static int[] GetChanceCardInformation()
+        public int[] GetCardInformation()
         {
 
-            return ChanceCardValuesSource;
+            return CardValuesSource;
         }
-        
-        
-        
-       
 
-        private static readonly int[] ChanceCardValuesSource =
-            {
-                24,
-                39,
-                0,
-                -1,
-                -3,
-                50,
-                -50,
-                
-                
-                
-                
-            }
-            
+
+
+
+
+        private static readonly int[] CardValuesSource =
+        {
+            24,
+            39,
+            0,
+            -1,
+            -3,
+            50,
+            -50
+
+
+
+
+
+        };
+
 }

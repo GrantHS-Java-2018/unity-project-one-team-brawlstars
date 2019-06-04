@@ -7,8 +7,8 @@ namespace Scripts.CardScripts
     public abstract class Card : MonoBehaviour
     {
 
-        public int cardNum;
-        public abstract void SetUpCard( int[] incomingTileValues);
+        //public int cardNum;
+        public abstract void SetUpCard( int [] incomingCardValues);
         public abstract void DoCardAction();
 
     }
