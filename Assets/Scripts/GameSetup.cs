@@ -11,5 +11,6 @@ public class GameSetup : MonoBehaviour
         TileManager.SetUpTiles();
         PlayerManager.PlacePlayersOnBoard();
         GameLoop.SetUpGameLoop();
+        PopupManager.SetUpPopupManager();
     }
 }
