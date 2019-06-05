@@ -8,8 +8,9 @@ namespace TileScripts.SpecialTiles
 {
     public class CardDeckTile : Tile
     {
-        public override void SetUpTile(String incomingTileName, Vector3 incomingTilePosition, int[] incomingTileValues)
+        public override void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTilePosition, Sprite incomingTileSprite, int[] incomingTileValues)
         {
+            TileIndex = incomingTileIndex;
             tileName = incomingTileName;
             TilePosition = incomingTilePosition;
             //Here needs to go a way of setting the deck to either community chest or chance first value 0 is chance, 1 is community chest

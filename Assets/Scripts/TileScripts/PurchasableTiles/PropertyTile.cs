@@ -13,6 +13,8 @@ namespace TileScripts.PurchasableTiles
         [SerializeField] protected int PurchasePrice;
         protected int MortgageDividend;
         private bool _isMortgaged;
+        protected Sprite DeedSprite;
+
 
         public void Buy()
         {
@@ -34,10 +36,17 @@ namespace TileScripts.PurchasableTiles
         }
         
         protected abstract void Rent();
-        public abstract override void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues);
+        public abstract override void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTilePosition, Sprite incomingTileSprite, int[] incomingTileValues);
         public override void DoTileAction()
         {
-            
+            if (Owner == null)
+            {
+                PopupManager.MakeNewPopUp(1, TileIndex, DeedSprite);
+            }
+            else
+            {
+                Rent();
+            }
         }
     }
 }

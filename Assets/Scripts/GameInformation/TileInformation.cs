@@ -2,62 +2,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 namespace GameInformation
 {
     public static class TileInformation
     {
-        public static (String, Vector3, int[]) GetTileInformation(int tileIndex)
+        public static (int, String, Vector3, Sprite, int[]) GetTileInformation(int tileIndex)
         {
             int[] propertyValueArray = new int[9];
             for (int n = 0; n < 9; n++)
             {
                 propertyValueArray[n] = PropertyValuesSource[tileIndex, n];
             }
-            return (NameSource[tileIndex], Waypoints[tileIndex], propertyValueArray);
+            return (tileIndex, NameSource[tileIndex], Waypoints[tileIndex], _tileSprites[tileIndex], propertyValueArray);
         }
+
+        private static Sprite[] _tileSprites;
         
         private static readonly String[] NameSource = 
         {
             "Go", 
-            "Mediterranean Avenue", 
-            "Community Chest", 
-            "Baltic Avenue", 
-            "Income Tax", 
-            "Reading Railroad",
-            "Oriental Avenue", 
-            "Chance", 
-            "Vermont Avenue", 
-            "Connecticut Avenue",
+            "Mediterranean_Avenue",
+            "Community_Chest",
+            "Baltic_Avenue",
+            "Income_Tax",
+            "Reading_Railroad",
+            "Oriental_Avenue",
+            "Chance",
+            "Vermont_Avenue",
+            "Connecticut_Avenue",
             "Jail",
-            "St. Charles Place",
-            "Electric Company",
-            "States Avenue",
-            "Virginia Avenue",
-            "Pennsylvania Railroad",
-            "St. James Place",
-            "Community Chest",
-            "Tennessee Avenue",
-            "New York Avenue",
-            "Free Parking",
-            "Kentucky Avenue",
+            "St._Charles_Place",
+            "Electric_Company",
+            "States_Avenue",
+            "Virginia_Avenue",
+            "Pennsylvania_Railroad",
+            "St._James_Place",
+            "Community_Chest",
+            "Tennessee_Avenue",
+            "New_York_Avenue",
+            "Free_Parking",
+            "Kentucky_Avenue",
             "Chance",
-            "Indiana Avenue",
-            "Illinois Avenue",
-            "B. & O. Railroad",
-            "Atlantic Avenue",
-            "Ventnor Avenue",
-            "Water Works",
-            "Marvin Gardens",
-            "Go To Jail",
-            "Pacific Avenue",
-            "North Carolina Avenue",
-            "Community Chest",
-            "Pennsylvania Avenue",
-            "Short Line",
+            "Indiana_Avenue",
+            "Illinois_Avenue",
+            "B._&_O._Railroad",
+            "Atlantic_Avenue",
+            "Ventnor_Avenue",
+            "Water_Works",
+            "Marvin_Gardens",
+            "Go_To_Jail",
+            "Pacific_Avenue",
+            "North_Carolina_Avenue",
+            "Community_Chest",
+            "Pennsylvania_Avenue",
+            "Short_Line_Railroad",
             "Chance",
-            "Park Place",
-            "Luxury Tax",
+            "Park_Place",
+            "Luxury_Tax",
             "Boardwalk"
         };
         
@@ -158,5 +161,21 @@ namespace GameInformation
                 {100, 0, 0, 0, 0, 0, 0, 0, 0}, //Non-property
                 {400, 200, 200, 50, 200, 600, 1400, 1700, 2000}
             };
+
+        public static void SetUpTileInformation()
+        {
+            _tileSprites = new Sprite[40];
+            for (int n = 0; n < 40; n ++)
+            {
+                if (PropertyValuesSource[n, 8] != 0)
+                {
+                    _tileSprites[n] = Resources.Load<Sprite>("Sprites/Deeds/" + NameSource[n]);
+                }
+                else
+                {
+                    _tileSprites[n] = null;
+                }
+            }
+        }
     }
 }

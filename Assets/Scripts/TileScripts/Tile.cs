@@ -12,13 +12,14 @@ namespace TileScripts
     {
         [FormerlySerializedAs("TileName")] public String tileName;
         protected Vector3 TilePosition;
+        protected int TileIndex;
 
         public Vector3 GetTilePosition()
         {
             return TilePosition;
         }
 
-        public abstract void SetUpTile(String incomingTileName, Vector3 incomingTileWaypoint, int[] incomingTileValues);
+        public abstract void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTileWaypoint, Sprite tileSprite, int[] incomingTileValues);
         public abstract void DoTileAction();
     }
 }

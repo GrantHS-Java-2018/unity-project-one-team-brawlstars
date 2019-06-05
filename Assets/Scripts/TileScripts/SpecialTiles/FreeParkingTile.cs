@@ -10,8 +10,9 @@ namespace TileScripts.SpecialTiles
     {
         private int _payout = 200;
         
-        public override void SetUpTile(String incomingTileName, Vector3 incomingTilePosition, int[] incomingTileValues)
+        public override void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTilePosition, Sprite incomingTileSprite, int[] incomingTileValues)
         {
+            TileIndex = incomingTileIndex;
             tileName = incomingTileName;
             TilePosition = incomingTilePosition;
         }

@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public static class GameLoop
 {
-        
-        
         private static bool _endTurnButtonOn;
 
         private static bool _rollButtonOn;
@@ -25,6 +23,12 @@ public static class GameLoop
         private static int _currentDieSum;
 
         private static Text _actionPromptText;
+
+        private static bool _pair;
+
+        private static int _pairCount;
+
+        private static GameObject _playerMovement;
         
         public static Player GetCurrentPlayer()
         {
@@ -40,6 +44,7 @@ public static class GameLoop
         {
                 _actionPromptText = GameObject.Find("PromptTextCanvas").GetComponentInChildren<Text>();
                 _currentPlayer = PlayerManager.GetPlayers()[0];
+                _playerMovement = GameObject.Find("PlayerMovement");
                 
                 _gameButtons = new Button[5];
                 _gameButtons[0] = GameObject.Find("RollButton").GetComponent<Button>(); //Roll button
@@ -49,13 +54,35 @@ public static class GameLoop
                 _gameButtonsOn = new bool[5];
                 
                 StartTurn(_currentPlayer);
-                
+        }
+
+        public static void ReportDieRolls(int roll, bool isPair)
+        {
+                _currentDieSum = roll;
+                _pair = isPair;
+                if (_pair)
+                {
+                        _pairCount++;     
+                }
+                if (_pairCount > 2)
+                {
+                        _currentPlayer.GoToJail();
+                }
+                else
+                {
+                        _playerMovement.GetComponent<PlayerMovement>().MovePlayer();
+                        if (!_pair)
+                        {
+                                _gameButtons[0].interactable = false;
+                        }     
+                }
         }
         
         private static void StartTurn(Player nextPlayer)
         {
                 /*_endTurnButton.interactable = false;*/ //uncomment this when we have a way to determine if a turn is over and reactivate the end turn button
                 _currentDieSum = 0;
+                _pairCount = 0;
                 _gameButtons[0].interactable = true;
                 _currentPlayer = nextPlayer;
                 _actionPromptText.text = "Player " + nextPlayer.GetNumber() + "'s turn";

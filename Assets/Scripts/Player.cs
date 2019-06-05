@@ -106,6 +106,7 @@ public class Player
             }
             currentWaypoint = GetNextMovementWaypoint(1);
         }
+        TileManager.GetTile(currentWaypoint).DoTileAction();
     }
 
     public void SendCoroutine(int location) //send to a specific location
@@ -130,12 +131,12 @@ public class Player
     
     public void Pay(int income)
     {
-        
+        money = money + income;
     }
 
     public void Charge(int expense)
     {
-        
+        money = money - expense;
     }
 }
 

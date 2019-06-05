@@ -70,7 +70,7 @@ namespace TileScripts
             for (int n = 0; n < 40; n++)
             {
                 var tileInformationHolder = TileInformation.GetTileInformation(n);
-                _gameTiles[n].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3);
+                _gameTiles[n].SetUpTile(tileInformationHolder.Item1, tileInformationHolder.Item2, tileInformationHolder.Item3, tileInformationHolder.Item4, tileInformationHolder.Item5);
             }
         }
     }

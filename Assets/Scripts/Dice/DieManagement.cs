@@ -10,29 +10,13 @@ public class DieManagement : MonoBehaviour
    public int num2;
    public int roll;
    public bool pair;
-  
-  
-
-   // Start is called before the first frame update
-   void Start()
-
-   {
-       RollCalculation();
-      
-   }
-
-   // Update is called once per frame
-   void Update()
-   {
-
-
-   }
 
    public void RollCalculation()
    {
        roll = num1 + num2;
        IsPair();
-
+       Debug.Log("we got there");
+       GameLoop.ReportDieRolls(roll, pair);
    }
 
    private void IsPair()

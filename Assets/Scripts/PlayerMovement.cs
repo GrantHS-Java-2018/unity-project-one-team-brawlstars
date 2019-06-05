@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
-        StartCoroutine(GameLoop.GetCurrentPlayer().MoveCoroutine(3)); //Replace dicesum with GameLoop.currentDieSum when finished, and playerarray[1] with GameLoop.currentPlayer when finished
+        StartCoroutine(GameLoop.GetCurrentPlayer().MoveCoroutine(GameLoop.GetCurrentDieSum())); 
     }
 
     public void SendPlayer()

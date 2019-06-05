@@ -7,11 +7,13 @@ using TileScripts;
 using TileScripts.PurchasableTiles;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
+using Image = UnityEngine.Experimental.UIElements.Image;
 
 public class PopupManager : MonoBehaviour
 {
-    private static GameObject _popupManager;
+    private static GameObject _popupBackground;
 
     private static GameObject[] _choiceButtons;
 
@@ -19,13 +21,13 @@ public class PopupManager : MonoBehaviour
 
     public static void SetUpPopupManager()
     {
-        _popupManager = GameObject.Find("PopupBackground");
+        _popupBackground = GameObject.Find("PopupBackground");
         _choiceButtons = new GameObject[3];
         for (int n = 1; n < 4; n++)
         {
             _choiceButtons[n - 1] = GameObject.Find("Option" + n);
         }
-        MakeNewPopUp(1, 1, null);
+        _popupBackground.SetActive(false);
     }
 
     private static void ActivateChoiceButtons()
@@ -42,7 +44,7 @@ public class PopupManager : MonoBehaviour
         {
             _choiceButtons[n].GetComponent<Button>().onClick.RemoveAllListeners();
         }
-        _popupManager.SetActive(false);
+        _popupBackground.SetActive(false);
         GameLoop.ActivateGameButtons();
     }
 
@@ -53,10 +55,11 @@ public class PopupManager : MonoBehaviour
     }
 
     //choiceType key: 0 is just an okay, 1 is unowned property, 2 is get out of jail
-    public static void MakeNewPopUp(int choiceType, int currentTile, Image choiceImage)
+    public static void MakeNewPopUp(int choiceType, int currentTile, Sprite choiceSprite)
     {
         GameLoop.DeactivateGameButtons();
-        _popupManager.SetActive(true);
+        _popupBackground.SetActive(true);
+        _popupBackground.GetComponentInChildren<SpriteRenderer>().sprite = choiceSprite;
         ActivateChoiceButtons();
         
         switch (choiceType)

@@ -3,24 +3,18 @@ using UnityEngine;
 
 public class Die : MonoBehaviour
 {
-    public int dieSideThrown = 0;
+    public int dieSideThrown;
     private Sprite[] diceSides;
     private SpriteRenderer rend;
     private bool coroutineAllowed = true;
     public GameObject dieManager;
+    private DieManagement _dieManagerScript;
     public int dieNum;
     public int roll;
-  
-
-
-
-    private void Update()
-    {
-      
-    }
 
     public void Start()
     {
+        _dieManagerScript = dieManager.GetComponent<DieManagement>();
         rend = GetComponent<SpriteRenderer>();
         diceSides = Resources.LoadAll<Sprite>("Sprites/DiceSides/");
         rend.sprite = diceSides[5];
@@ -47,19 +41,16 @@ public class Die : MonoBehaviour
         dieSideThrown = randomDiceSide + 1;
         if (dieNum == 1)
         {
-            dieManager.GetComponent<DieManagement>().num1 = dieSideThrown;
+            _dieManagerScript.num1 = dieSideThrown;
         }
         else
         {
-            dieManager.GetComponent<DieManagement>().num2 = dieSideThrown;
+            _dieManagerScript.num2 = dieSideThrown;
         }
 
-        dieManager.GetComponent<DieManagement>().RollCalculation();
+        _dieManagerScript.RollCalculation();
 
         coroutineAllowed = true;
-      
-      
-      
     }
 
 }

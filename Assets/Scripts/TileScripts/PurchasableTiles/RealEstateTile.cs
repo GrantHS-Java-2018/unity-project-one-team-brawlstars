@@ -17,8 +17,9 @@ namespace TileScripts.PurchasableTiles
         
         private int _mortgageDividend;
         
-        public override void SetUpTile(String incomingTileName, Vector3 incomingTilePosition, int[] incomingTileValues)
+        public override void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTilePosition, Sprite incomingTileSprite, int[] incomingTileValues)
         {
+            TileIndex = incomingTileIndex;
             tileName = incomingTileName;
             TilePosition = incomingTilePosition;
             PurchasePrice = incomingTileValues[0];
@@ -28,6 +29,7 @@ namespace TileScripts.PurchasableTiles
             {
                 _rents[n] = incomingTileValues[n + 3];
             }
+            DeedSprite = incomingTileSprite;
         }
         
         protected override void Rent()

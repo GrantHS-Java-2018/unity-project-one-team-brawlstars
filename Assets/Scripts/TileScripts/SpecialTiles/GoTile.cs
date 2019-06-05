@@ -9,8 +9,9 @@ namespace TileScripts.SpecialTiles
 
     public class GoTile : Tile
     {
-        public override void SetUpTile(String incomingTileName, Vector3 incomingTilePosition, int[] incomingTileValues)
+        public override void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTilePosition, Sprite incomingTileSprite, int[] incomingTileValues)
         {
+            TileIndex = incomingTileIndex;
             tileName = incomingTileName;
             TilePosition = incomingTilePosition;
         }
