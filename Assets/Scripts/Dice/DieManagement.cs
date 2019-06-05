@@ -3,32 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DieManagement : MonoBehaviour
+namespace Dice
 {
-
-   public int num1;
-   public int num2;
-   public int roll;
-   public bool pair;
-
-   public void RollCalculation()
-   {
-       roll = num1 + num2;
-       IsPair();
-       Debug.Log("we got there");
-       GameLoop.ReportDieRolls(roll, pair);
-   }
-
-   private void IsPair()
-   {
-       if (num1 == num2)
+    public class DieManagement : MonoBehaviour
+    {
+    
+       public int num1;
+       public int num2;
+       public int roll;
+       public bool pair;
+    
+       public void RollCalculation()
        {
-           pair = true;
+           roll = num1 + num2;
+           IsPair();
+           Debug.Log("we got there");
+           GameLoop.ReportDieRolls(roll, pair);
        }
-       else
+    
+       private void IsPair()
        {
-           pair = false;
+           if (num1 == num2)
+           {
+               pair = true;
+           }
+           else
+           {
+               pair = false;
+           }
+    
        }
-
-   }
+    }
 }
