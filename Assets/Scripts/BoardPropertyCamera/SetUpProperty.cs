@@ -1,36 +1,36 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SetUpProperty : MonoBehaviour
 {
-    // Start is called before the first frame update
 
-    private Sprite[] Props;
-    private SpriteRenderer rend;
-    private Vector3 tempPosition1 = new Vector3( -768f * 512f, 450f, 0f);
     void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
-        Props = Resources.LoadAll<Sprite>("Sprites/Deeds/");
-        rend.sprite = Props[22];  
+        Sprite[] propSprites = Resources.LoadAll<Sprite>("Sprites/Deeds");
+        
+        for (int i = 0; i < 22; i++)
+        {         
+            //Create the cardInstance
+            GameObject cardInstance = new GameObject("Deed" + i);
+            cardInstance.transform.parent = this.transform;
 
+            SpriteRenderer spriteRenderer = cardInstance.AddComponent<SpriteRenderer>();
+            spriteRenderer.sprite = propSprites[i];
+            
+            
+            
+            float myScale = 4f;
+            spriteRenderer.transform.localScale = new Vector3(100f, 100f, 100f);
+            cardInstance.transform.position = new Vector3( 900f, -1700 - 100 * i, 0f);
+        }
+        
+        
     }
-
-    private void loadProps()
-    {
-        rend.sprite = Props[3];
-        Props[3].transform.position = tempPosition1;
-       
-    }
-    
-    
 
     // Update is called once per frame
     void Update()
     {
         
-        
     }
 }
-*/

@@ -21,6 +21,6 @@ public class SetUpCamera : MonoBehaviour {
     public void ShowProperty() {
         MainCamera.enabled = false;
         PropertyCamera.enabled = true;
-        propManager.GetComponent<SetUpProperty>().loadProps();
+        propManager.AddComponent<SetUpProperty>();
     }
 }
