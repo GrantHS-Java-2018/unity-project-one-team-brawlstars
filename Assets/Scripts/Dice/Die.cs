@@ -51,7 +51,7 @@ namespace Dice
                 _dieManagerScript.num2 = dieSideThrown;
             }
 
-            _dieManagerScript.RollCalculation();
+            _dieManagerScript.DieReady();
 
             coroutineAllowed = true;
         }
