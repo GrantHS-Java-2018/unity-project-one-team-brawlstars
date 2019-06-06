@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.CardScripts
+namespace CardScripts
 {
     public class CardManager : MonoBehaviour
     {
@@ -10,14 +10,13 @@ namespace Scripts.CardScripts
 
         public void Start()
         {
-         deck[0] = new MovementCards();
+         deck[0] = gameObject.AddComponent<MovementCards>();
          
          
          
          for (int n = 0; n < 7; n++)
          {
-                var cardInfoPlace = CardInformation.GetCardInformation();
-                deck[n].SetUpCard(cardInfoPlace);
+                deck[n].SetUpCard(CardInformation.GetCardInformation(n));
          }
         }
         

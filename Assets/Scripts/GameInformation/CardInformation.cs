@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardInformation : MonoBehaviour
+public static class CardInformation
 {
-        public int[] GetCardInformation()
+        public static int GetCardInformation(int cardIndex)
         {
-
-            return CardValuesSource;
+            return CardValuesSource[cardIndex];
         }
 
 

@@ -1,23 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TileScripts;
 using UnityEngine;
 
 namespace CardScripts
+
 {
-    public class MovementCards : Card
-
+    public class MoneyCards : Card
     {
-        private int cardWaypoint;
-
+        private int cardMoneyChange;
         public override void SetUpCard(int incomingCardValue)
         {
-            cardWaypoint = incomingCardValue;
+            cardMoneyChange = incomingCardValue;
         }
 
         public override void DoCardAction()
         {
-
+            
         }
     }
 }
