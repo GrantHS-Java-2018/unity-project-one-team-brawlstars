@@ -12,25 +12,6 @@ namespace CardScripts
         public abstract void DoCardAction();
 
     }
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
 }
 
 

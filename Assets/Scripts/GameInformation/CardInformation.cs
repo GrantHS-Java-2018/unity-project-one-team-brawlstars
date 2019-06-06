@@ -8,6 +8,7 @@ public static class CardInformation
         {
             return CardValuesSource[cardIndex];
         }
+       
 
 
 
@@ -15,18 +16,32 @@ public static class CardInformation
 
         private static readonly int[] CardValuesSource =
         {
+            //Chance
             24,
             39,
             0,
-            -1,
-            -3,
+            5,
+            11,
             50,
-            -50
-
-
-
-
-
+            150,
+            -15,
+            
+            //Community Chest
+            25,
+            10,
+            -50,
+            20,
+            100,
+            200,
+            100,
+            -100,
+            -150,
+            45,
+            100,
+            0
+                        
         };
+        
+        
 
 }

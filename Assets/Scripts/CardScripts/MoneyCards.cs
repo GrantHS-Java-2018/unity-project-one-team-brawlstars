@@ -15,7 +15,7 @@ namespace CardScripts
 
         public override void DoCardAction()
         {
-            
+            GameLoop.GetCurrentPlayer().Pay(cardMoneyChange);   
         }
     }
 }
