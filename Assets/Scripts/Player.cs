@@ -105,17 +105,48 @@ public class Player
                 yield return null;
             }
             currentWaypoint = GetNextMovementWaypoint(1);
+            if (currentWaypoint == 0)
+            {
+                Pay(200);
+            }
         }
         TileManager.GetTile(currentWaypoint).DoTileAction();
     }
 
-    public void SendCoroutine(int location) //send to a specific location
+    public IEnumerator SendCoroutine(int location) //send to a specific location
     {
-         
+        Vector3 finalPosition = TileManager.GetTile(location).GetTilePosition();
+        
+        while (_currentPosition != finalPosition)
+        {   
+            Vector3 nextPosition = TileManager.GetTile(GetNextMovementWaypoint(1)).GetTilePosition();
+            
+            while (_currentPosition != nextPosition)
+            {
+                _currentPosition = Vector3.MoveTowards(_currentPosition, nextPosition, 30f);
+                UpdatePosition();
+                yield return null;
+            }
+            currentWaypoint = GetNextMovementWaypoint(1);
+            if (currentWaypoint == 0)
+            {
+                Pay(200);
+            }
+        }
+        TileManager.GetTile(currentWaypoint).DoTileAction();
     }
     
-    public void GoToJail() //send to jail, RIGHT THROUGH BOARD, DO NOT PASS OTHER TILES
+    public IEnumerator GoToJailCoroutine() //send to jail, RIGHT THROUGH BOARD, DO NOT PASS OTHER TILES
     {
+        Vector3 finalPosition = TileManager.GetTile(10).GetTilePosition();
+        while (_currentPosition != finalPosition)
+        {
+            _currentPosition = Vector3.MoveTowards(_currentPosition, finalPosition, 20f);
+            {
+                UpdatePosition();
+                yield return null;
+            }
+        }
         inJail = true;
     }
     

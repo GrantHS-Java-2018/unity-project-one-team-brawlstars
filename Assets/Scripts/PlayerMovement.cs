@@ -18,9 +18,14 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(GameLoop.GetCurrentPlayer().MoveCoroutine(GameLoop.GetCurrentDieSum())); 
     }
 
-    public void SendPlayer()
+    public void SendPlayer(int waypoint)
     {
-        
+        StartCoroutine(GameLoop.GetCurrentPlayer().SendCoroutine(waypoint));
+    }
+
+    public void SendPlayerToJail()
+    {
+        StartCoroutine(GameLoop.GetCurrentPlayer().GoToJailCoroutine());
     }
     
     public void EndTurn()

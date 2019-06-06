@@ -167,7 +167,7 @@ namespace GameInformation
             _tileSprites = new Sprite[40];
             for (int n = 0; n < 40; n ++)
             {
-                if (PropertyValuesSource[n, 8] != 0)
+                if (PropertyValuesSource[n, 1] != 0)
                 {
                     _tileSprites[n] = Resources.Load<Sprite>("Sprites/Deeds/" + NameSource[n]);
                 }

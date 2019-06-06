@@ -66,7 +66,7 @@ public static class GameLoop
                 }
                 if (_pairCount > 2)
                 {
-                        _currentPlayer.GoToJail();
+                        _playerMovement.GetComponent<PlayerMovement>().SendPlayerToJail();
                 }
                 else
                 {

@@ -32,7 +32,6 @@ namespace Dice
        {
            roll = num1 + num2;
            IsPair();
-           Debug.Log("we got there");
            GameLoop.ReportDieRolls(roll, pair);
        }
     
