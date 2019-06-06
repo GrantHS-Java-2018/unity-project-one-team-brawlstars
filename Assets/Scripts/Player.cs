@@ -147,6 +147,7 @@ public class Player
                 yield return null;
             }
         }
+        currentWaypoint = 10;
         inJail = true;
     }
     
