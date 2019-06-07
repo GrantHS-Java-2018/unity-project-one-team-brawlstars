@@ -54,6 +54,21 @@ public class PopupManager : MonoBehaviour
         property.Buy();
     }
 
+    private static void ChargeJailFee()
+    {
+        GameLoop.GetCurrentPlayer().Charge(50);
+    }
+
+    private static void GetOutOfJail()
+    {
+        GameLoop.GetCurrentPlayer().GetOutOfJail();
+    }
+
+    private static void UseGetOutOfJailCard()
+    {
+        GameLoop.GetCurrentPlayer().ChangeGetOutOfJailCard(false);
+    }
+    
     //choiceType key: 0 is just an okay, 1 is unowned property, 2 is get out of jail
     public static void MakeNewPopUp(int choiceType, int currentTile, Sprite choiceSprite)
     {
@@ -66,23 +81,41 @@ public class PopupManager : MonoBehaviour
         {
             case 0:
                 _choiceButtons[0].GetComponentInChildren<Text>().text = "Okay";
+                _choiceButtons[0].GetComponent<Button>().onClick.AddListener(ResetPopup);
+                
                 _choiceButtons[1].SetActive(false);
                 _choiceButtons[2].SetActive(false);
-                
-                _choiceButtons[0].GetComponent<Button>().onClick.AddListener(ResetPopup);
                 break;
             case 1:
                 _tileToBuy = currentTile;
                 _choiceButtons[0].GetComponentInChildren<Text>().text = "Purchase";
-                _choiceButtons[1].GetComponentInChildren<Text>().text = "Ignore";
-                _choiceButtons[2].SetActive(false);
-                
                 _choiceButtons[0].GetComponent<Button>().onClick.AddListener(BuyProperty);
                 _choiceButtons[0].GetComponent<Button>().onClick.AddListener(ResetPopup);
+                
+                _choiceButtons[1].GetComponentInChildren<Text>().text = "Ignore";
                 _choiceButtons[1].GetComponent<Button>().onClick.AddListener(ResetPopup);
+                
+                _choiceButtons[2].SetActive(false);
                 break;
+            case 2:
+                _choiceButtons[0].GetComponentInChildren<Text>().text = "Try for Pair";
+                //some way to start checking for pair
+                
+                _choiceButtons[1].GetComponentInChildren<Text>().text = "Pay Fine of $50";
+                _choiceButtons[1].GetComponent<Button>().onClick.AddListener(ChargeJailFee);
+                _choiceButtons[1].GetComponent<Button>().onClick.AddListener(GetOutOfJail);
+                
+                if (GameLoop.GetCurrentPlayer().CheckForGetOutOfJailCard())
+                {
+                    _choiceButtons[2].GetComponentInChildren<Text>().text = "Use Get Out of Jail Free Card";
+                    _choiceButtons[2].GetComponent<Button>().onClick.AddListener(UseGetOutOfJailCard);
+                    _choiceButtons[2].GetComponent<Button>().onClick.AddListener(GetOutOfJail);
+                }
+
+                break;
+               
             //case 2 will go here eventually, with jail selection
         }
-        
+
     }
 }

@@ -83,8 +83,16 @@ public static class GameLoop
                 /*_endTurnButton.interactable = false;*/ //uncomment this when we have a way to determine if a turn is over and reactivate the end turn button
                 _currentDieSum = 0;
                 _pairCount = 0;
-                _gameButtons[0].interactable = true;
                 _currentPlayer = nextPlayer;
+                if (!_currentPlayer.CheckIfJailed())
+                {
+                        _gameButtons[0].interactable = true;
+                }
+                else
+                {
+                        PopupManager.MakeNewPopUp(2, );//set this up!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                }
+                
                 _actionPromptText.text = "Player " + nextPlayer.GetNumber() + "'s turn";
         }
 

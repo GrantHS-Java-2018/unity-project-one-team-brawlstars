@@ -33,7 +33,7 @@ public class Player
 
     [SerializeField] private GameObject playerGameObject;
 
-    [SerializeField] private PlayerMovement playerMovementObject;
+    private bool _getOutOfJailCard;
 
     public void SetNumber(int playerIndex)
     {
@@ -58,7 +58,6 @@ public class Player
     public void PlaceOnBoard()
     {
         _currentPosition = _tileArray[0].GetTilePosition();
-        playerMovementObject = GameObject.Find("PlayerMovement").GetComponent<PlayerMovement>();
         
         playerGameObject = new GameObject();
         playerGameObject.name = "Player " + _playerNumber;
@@ -160,6 +159,29 @@ public class Player
     {
         return _utilitiesOwned;
     }
+    
+    public bool CheckIfJailed()
+    {
+        return inJail;
+    }
+    
+    public void GetOutOfJail()
+    {
+        inJail = false;
+    }
+
+    public bool CheckForGetOutOfJailCard()
+    {
+        return _getOutOfJailCard;
+    }
+
+    public void ChangeGetOutOfJailCard(bool inOrOut)
+    {
+        _getOutOfJailCard = inOrOut;
+    }
+
+    
+    
     
     public void Pay(int income)
     {
