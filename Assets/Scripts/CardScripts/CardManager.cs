@@ -21,7 +21,9 @@ namespace CardScripts
             chanceDeck[5] = gameObject.AddComponent<MoneyCards>();
             chanceDeck[6] = gameObject.AddComponent<MoneyCards>();
             chanceDeck[7] = gameObject.AddComponent<MoneyCards>();
+            chanceDeck[8] = gameObject.AddComponent<GetOutOfJailCard>();
             
+            //Sets up deck of chance cards
             
             communityChestDeck[0] = gameObject.AddComponent<MoneyCards>();
             communityChestDeck[1] = gameObject.AddComponent<MoneyCards>();
@@ -35,7 +37,9 @@ namespace CardScripts
             communityChestDeck[9] = gameObject.AddComponent<MoneyCards>();
             communityChestDeck[10] = gameObject.AddComponent<MoneyCards>();
             communityChestDeck[11] = gameObject.AddComponent<MovementCards>();
+            communityChestDeck[12] = gameObject.AddComponent<GetOutOfJailCard>();
             
+            //Sets up deck of Community Chest cards
             
             for (int n = 0; n < 8; n++)
             {
@@ -49,14 +53,15 @@ namespace CardScripts
             
             ShuffleChance();
             ShuffleCommunityChest();
+            //Shuffles decks before game starts
         }
 
         public void ShuffleCommunityChest()
         {
             for (int n = 0; n < 500; n++)
             {
-                int a = Random.Range(0,12);
-                int b = Random.Range(0,12);
+                int a = Random.Range(0,13);
+                int b = Random.Range(0,13);
                 Card tempCard = communityChestDeck[a];
                 communityChestDeck[a] = communityChestDeck[b];
                 communityChestDeck[b] = tempCard;
@@ -66,8 +71,8 @@ namespace CardScripts
         {
             for (int n = 0; n < 500; n++)
             {
-                int a = Random.Range(0,8);
-                int b = Random.Range(0,8);
+                int a = Random.Range(0,9);
+                int b = Random.Range(0,9);
                 Card tempCard = chanceDeck[a];
                 chanceDeck[a] = chanceDeck[b];
                 chanceDeck[b] = tempCard;
@@ -76,7 +81,7 @@ namespace CardScripts
 
         public Card DealChance()
         {
-            if (_currentChanceCard > 6)
+            if (_currentChanceCard > 9)
             {
                 ShuffleChance();
                 _currentChanceCard = 0;
@@ -84,14 +89,11 @@ namespace CardScripts
             _currentChanceCard++;
             return chanceDeck[_currentChanceCard-1];
             
-        }/// <summary>
-         /// /////////////////}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
-         /// </summary>
-         /// <returns></returns>
+        }
         
         public Card DealCommuntiyChest()
         {
-            if (_currentCommunityChestCard > 6)
+            if (_currentCommunityChestCard > 13)
             {
                 ShuffleCommunityChest();
                 _currentCommunityChestCard = 0;

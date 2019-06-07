@@ -11,10 +11,12 @@ namespace CardScripts
         public override void SetUpCard(int incomingCardValue)
         {
             cardMoneyChange = incomingCardValue;
+            //Initializes value for card
         }
         public override void DoCardAction()
         {
-            GameLoop.GetCurrentPlayer().Pay(cardMoneyChange);   
+            GameLoop.GetCurrentPlayer().Pay(cardMoneyChange);
+            //Runs method to change players money
         }
     }
-    
+}
