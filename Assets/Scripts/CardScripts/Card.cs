@@ -9,7 +9,9 @@ namespace CardScripts
 
         //public int cardNum;
         public abstract void SetUpCard(int incomingCardValue);
+        //Sets up cards with there values
         public abstract void DoCardAction();
+        //Does card action when called upon
 
     }
 }

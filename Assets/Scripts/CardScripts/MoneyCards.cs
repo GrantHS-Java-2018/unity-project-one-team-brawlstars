@@ -12,10 +12,9 @@ namespace CardScripts
         {
             cardMoneyChange = incomingCardValue;
         }
-
         public override void DoCardAction()
         {
             GameLoop.GetCurrentPlayer().Pay(cardMoneyChange);   
         }
     }
-}
+    
