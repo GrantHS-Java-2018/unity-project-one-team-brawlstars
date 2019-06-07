@@ -16,7 +16,7 @@ namespace TileScripts.PurchasableTiles
         protected Sprite DeedSprite;
 
 
-        public void Buy()
+        public virtual void Buy()
         {
             GameLoop.GetCurrentPlayer().Charge(PurchasePrice);
             Owner = GameLoop.GetCurrentPlayer();

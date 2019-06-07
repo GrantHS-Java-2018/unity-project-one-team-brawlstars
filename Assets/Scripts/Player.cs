@@ -17,7 +17,7 @@ public class Player
 
     [SerializeField] private int _playerNumber;
 
-    [SerializeField] private int money;
+    [SerializeField] private int money = 1500;
 
     [SerializeField] private bool inJail;
 
@@ -53,6 +53,11 @@ public class Player
     public void SetTileManager()
     {
         _tileArray = TileManager.GetAllTiles();
+    }
+
+    public int GetCurrentWaypoint()
+    {
+        return currentWaypoint;
     }
     
     public void PlaceOnBoard()
@@ -154,10 +159,20 @@ public class Player
     {
         return _railroadsOwned;
     }
+    
+    public void AddOneToRailroadsOwned()
+    {
+        _railroadsOwned++;
+    }
 
     public int GetUtilitiesOwned()
     {
         return _utilitiesOwned;
+    }
+
+    public void AddOneToUtilitiesOwned()
+    {
+        _utilitiesOwned++;
     }
     
     public bool CheckIfJailed()

@@ -10,7 +10,8 @@ namespace TileScripts.PurchasableTiles
 {
     public class RailroadTile : PropertyTile
     {
-        public override void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTilePosition, Sprite incomingTileSprite, int[] incomingTileValues)
+        public override void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTilePosition,
+            Sprite incomingTileSprite, int[] incomingTileValues)
         {
             TileIndex = incomingTileIndex;
             tileName = incomingTileName;
@@ -19,12 +20,20 @@ namespace TileScripts.PurchasableTiles
             MortgageDividend = incomingTileValues[1];
             DeedSprite = incomingTileSprite;
         }
-        protected override void Rent() 
+
+        protected override void Rent()
         {
             int rentMoney = Owner.GetRailroadsOwned() * 25;
-            
+
             GameLoop.GetCurrentPlayer().Charge(rentMoney);
             Owner.Pay(rentMoney);
+        }
+
+        public override void Buy()
+        {
+            GameLoop.GetCurrentPlayer().Charge(PurchasePrice);
+            Owner = GameLoop.GetCurrentPlayer();
+            Owner.AddOneToRailroadsOwned();
         }
     }
 }

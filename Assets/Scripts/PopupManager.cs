@@ -104,12 +104,18 @@ public class PopupManager : MonoBehaviour
                 _choiceButtons[1].GetComponentInChildren<Text>().text = "Pay Fine of $50";
                 _choiceButtons[1].GetComponent<Button>().onClick.AddListener(ChargeJailFee);
                 _choiceButtons[1].GetComponent<Button>().onClick.AddListener(GetOutOfJail);
+                _choiceButtons[1].GetComponent<Button>().onClick.AddListener(ResetPopup);
                 
                 if (GameLoop.GetCurrentPlayer().CheckForGetOutOfJailCard())
                 {
                     _choiceButtons[2].GetComponentInChildren<Text>().text = "Use Get Out of Jail Free Card";
                     _choiceButtons[2].GetComponent<Button>().onClick.AddListener(UseGetOutOfJailCard);
                     _choiceButtons[2].GetComponent<Button>().onClick.AddListener(GetOutOfJail);
+                    _choiceButtons[2].GetComponent<Button>().onClick.AddListener(ResetPopup);
+                }
+                else
+                {
+                    _choiceButtons[2].SetActive(false);
                 }
 
                 break;

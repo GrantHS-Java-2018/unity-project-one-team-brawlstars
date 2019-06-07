@@ -39,5 +39,7 @@ namespace TileScripts.PurchasableTiles
             GameLoop.GetCurrentPlayer().Charge(rentMoney);
             Owner.Pay(rentMoney);
         }
+        
+        
     }
 }

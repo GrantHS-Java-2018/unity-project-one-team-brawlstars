@@ -19,10 +19,17 @@ namespace TileScripts.PurchasableTiles
         }
         protected override void Rent()
         {
-            int rentMoney = Owner.GetRailroadsOwned() * GameLoop.GetCurrentDieSum();
+            int rentMoney = Owner.GetUtilitiesOwned() * GameLoop.GetCurrentDieSum();
             
             GameLoop.GetCurrentPlayer().Charge(rentMoney);
             Owner.Pay(rentMoney);
+        }
+
+        public override void Buy()
+        {
+            GameLoop.GetCurrentPlayer().Charge(PurchasePrice);
+            Owner = GameLoop.GetCurrentPlayer();
+            Owner.AddOneToUtilitiesOwned();
         }
     }
 }

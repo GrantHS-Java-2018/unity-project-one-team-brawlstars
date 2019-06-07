@@ -90,7 +90,7 @@ public static class GameLoop
                 }
                 else
                 {
-                        PopupManager.MakeNewPopUp(2, );//set this up!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        PopupManager.MakeNewPopUp(2, _currentPlayer.GetCurrentWaypoint(), Resources.Load<Sprite>("Sprites/JailSprite"));//set this up!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
                 
                 _actionPromptText.text = "Player " + nextPlayer.GetNumber() + "'s turn";
