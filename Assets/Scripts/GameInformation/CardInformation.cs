@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class CardInformation
+namespace GameInformation
 {
+
+    public static class CardInformation
+    {
         public static int GetCardInformation(int cardIndex)
         {
             return CardValuesSource[cardIndex];
         }
-       
+
         private static readonly int[] CardValuesSource =
         {
             //Chance
@@ -20,7 +23,7 @@ public static class CardInformation
             50,
             150,
             -15,
-            
+
             //Community Chest
             25,
             10,
@@ -34,6 +37,7 @@ public static class CardInformation
             45,
             100,
             0
-                        
+
         };
+    }
 }
