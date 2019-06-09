@@ -12,6 +12,8 @@ namespace GameInformation
             return CardValuesSource[cardIndex];
         }
 
+        private static Sprite[] _cardSprites;
+
         private static readonly int[] CardValuesSource =
         {
             //Chance
@@ -32,12 +34,16 @@ namespace GameInformation
             100,
             200,
             100,
-            -100,
             -150,
+            -100,
             45,
             100,
             0
-
         };
+
+        private static void SetUpCardInformation()
+        {
+            
+        }
     }
 }
