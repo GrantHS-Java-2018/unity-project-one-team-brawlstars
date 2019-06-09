@@ -9,11 +9,6 @@ public static class CardInformation
             return CardValuesSource[cardIndex];
         }
        
-
-
-
-
-
         private static readonly int[] CardValuesSource =
         {
             //Chance
@@ -41,7 +36,4 @@ public static class CardInformation
             0
                         
         };
-        
-        
-
 }
