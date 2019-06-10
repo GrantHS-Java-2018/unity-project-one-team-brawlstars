@@ -42,8 +42,8 @@ namespace CardScripts
             
             //Sets up deck of Community Chest cards
 
-            var cardInformation = CardInformation.GetCardInformation(0);
-            
+            (int, Sprite) cardInformation;
+
             for (int n = 0; n < 8; n++)
             {
                 cardInformation = CardInformation.GetCardInformation(n);

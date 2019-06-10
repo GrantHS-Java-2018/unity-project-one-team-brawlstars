@@ -13,7 +13,6 @@ namespace CardScripts
         {
             cardMoneyChange = incomingCardValue;
             CardSprite = incomingCardSprite;
-            //Initializes value for card
         }
         public override void DoCardAction()
         {

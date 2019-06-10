@@ -53,8 +53,7 @@ namespace GameInformation
 
             for (int n = 9; n < 22; n++)
             {
-                _cardSprites[n] =
-                    Resources.Load<Sprite>("Sprites/Cards/CommunityChest/Implemented/CommunityChest" + (n - 9));
+                _cardSprites[n] = Resources.Load<Sprite>("Sprites/Cards/CommunityChest/Implemented/CommunityChest" + (n - 9));
             }
         }
     }

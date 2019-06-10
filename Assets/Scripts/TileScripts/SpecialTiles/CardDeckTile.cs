@@ -12,7 +12,7 @@ namespace TileScripts.SpecialTiles
         private static Card _currentCard;
         
         private bool _isChance;
-
+        
         public static Card GetCurrentCard()
         {
             return _currentCard;

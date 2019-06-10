@@ -16,7 +16,6 @@ namespace CardScripts
         {
             return CardSprite;
         }
-
     }
 }
 
