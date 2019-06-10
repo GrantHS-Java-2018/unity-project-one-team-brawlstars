@@ -20,6 +20,7 @@ namespace TileScripts.PurchasableTiles
         {
             GameLoop.GetCurrentPlayer().Charge(PurchasePrice);
             Owner = GameLoop.GetCurrentPlayer();
+            PlayerInformationManager.UpdatePlayerInfo();
         }
         
         public void ChangeMortgage()

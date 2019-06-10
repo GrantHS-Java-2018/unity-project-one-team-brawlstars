@@ -16,6 +16,7 @@ public class GameSetup : MonoBehaviour
         CardInformation.SetUpCardInformation();
         CardManager.SetUpCardManager();
         PlayerManager.PlacePlayersOnBoard();
+        PlayerInformationManager.SetUpPlayerInformationManager(PlayerManager.GetPlayers().Length);
         GameLoop.SetUpGameLoop();
     }
 }

@@ -37,6 +37,11 @@ public class Player
 
     private int _timeInJail;
 
+    public int GetMoney()
+    {
+        return money;
+    }
+
     public void SetNumber(int playerIndex)
     {
         playerNumber = playerIndex + 1;
@@ -155,6 +160,7 @@ public class Player
         }
         currentWaypoint = 10;
         inJail = true;
+        PlayerInformationManager.UpdatePlayerInfo();
         GameLoop.EndTurn();
     }
     
@@ -196,6 +202,7 @@ public class Player
     public void GetOutOfJail()
     {
         inJail = false;
+        PlayerInformationManager.UpdatePlayerInfo();
     }
 
     public bool CheckForGetOutOfJailCard()
@@ -214,6 +221,7 @@ public class Player
     public void Pay(int income)
     {
         money = money + income;
+        PlayerInformationManager.UpdatePlayerInfo();
     }
 
     public void Charge(int expense)

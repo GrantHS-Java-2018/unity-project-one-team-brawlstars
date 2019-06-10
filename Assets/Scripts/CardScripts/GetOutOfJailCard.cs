@@ -15,7 +15,7 @@ namespace CardScripts
         public override void DoCardAction()
         {
             GameLoop.GetCurrentPlayer().ChangeGetOutOfJailCard(true);
-
+            PlayerInformationManager.UpdatePlayerInfo();
         }
 
 
