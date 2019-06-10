@@ -15,7 +15,7 @@ public class Player
 {
     private static Tile[] _tileArray;
 
-    [SerializeField] private int _playerNumber;
+    [SerializeField] private int playerNumber;
 
     [SerializeField] private int money = 1500;
 
@@ -25,7 +25,7 @@ public class Player
 
     private int _utilitiesOwned;
     
-    [SerializeField] private Vector3 _currentPosition;
+    [SerializeField] private Vector3 currentPosition;
         
     [SerializeField] private int currentWaypoint;
     
@@ -33,16 +33,18 @@ public class Player
 
     [SerializeField] private GameObject playerGameObject;
 
-    private bool _getOutOfJailCard;
+    [SerializeField] private bool getOutOfJailCard;
+
+    private int _timeInJail;
 
     public void SetNumber(int playerIndex)
     {
-        _playerNumber = playerIndex + 1;
+        playerNumber = playerIndex + 1;
     }
 
     public int GetNumber()
     {
-        return _playerNumber;
+        return playerNumber;
     }
     
     public void SetPlayerToken(Sprite token)
@@ -62,12 +64,12 @@ public class Player
     
     public void PlaceOnBoard()
     {
-        _currentPosition = _tileArray[0].GetTilePosition();
+        currentPosition = _tileArray[0].GetTilePosition();
         
         playerGameObject = new GameObject();
-        playerGameObject.name = "Player " + _playerNumber;
+        playerGameObject.name = "Player " + playerNumber;
 
-        playerGameObject.transform.position = _currentPosition;
+        playerGameObject.transform.position = currentPosition;
         playerGameObject.transform.localScale = new Vector3(8f, 8f, 8f);
         
         playerGameObject.AddComponent<SpriteRenderer>();
@@ -76,7 +78,7 @@ public class Player
 
     public void UpdatePosition()
     {
-        playerGameObject.transform.position = _currentPosition;
+        playerGameObject.transform.position = currentPosition;
     }
 
     public int GetNextMovementWaypoint(int movementAmount)
@@ -98,13 +100,13 @@ public class Player
     {
         Vector3 finalPosition = TileManager.GetTile(GetNextMovementWaypoint(diceSum)).GetTilePosition();
         
-        while (_currentPosition != finalPosition)
+        while (currentPosition != finalPosition)
         {   
             Vector3 nextPosition = TileManager.GetTile(GetNextMovementWaypoint(1)).GetTilePosition();
             
-            while (_currentPosition != nextPosition)
+            while (currentPosition != nextPosition)
             {
-                _currentPosition = Vector3.MoveTowards(_currentPosition, nextPosition, 10f);
+                currentPosition = Vector3.MoveTowards(currentPosition, nextPosition, 10f);
                 UpdatePosition();
                 yield return null;
             }
@@ -121,13 +123,13 @@ public class Player
     {
         Vector3 finalPosition = TileManager.GetTile(location).GetTilePosition();
         
-        while (_currentPosition != finalPosition)
+        while (currentPosition != finalPosition)
         {   
             Vector3 nextPosition = TileManager.GetTile(GetNextMovementWaypoint(1)).GetTilePosition();
             
-            while (_currentPosition != nextPosition)
+            while (currentPosition != nextPosition)
             {
-                _currentPosition = Vector3.MoveTowards(_currentPosition, nextPosition, 30f);
+                currentPosition = Vector3.MoveTowards(currentPosition, nextPosition, 30f);
                 UpdatePosition();
                 yield return null;
             }
@@ -143,9 +145,9 @@ public class Player
     public IEnumerator GoToJailCoroutine() //send to jail, RIGHT THROUGH BOARD, DO NOT PASS OTHER TILES
     {
         Vector3 finalPosition = TileManager.GetTile(10).GetTilePosition();
-        while (_currentPosition != finalPosition)
+        while (currentPosition != finalPosition)
         {
-            _currentPosition = Vector3.MoveTowards(_currentPosition, finalPosition, 20f);
+            currentPosition = Vector3.MoveTowards(currentPosition, finalPosition, 20f);
             {
                 UpdatePosition();
                 yield return null;
@@ -153,6 +155,7 @@ public class Player
         }
         currentWaypoint = 10;
         inJail = true;
+        GameLoop.EndTurn();
     }
     
     public int GetRailroadsOwned()
@@ -175,8 +178,18 @@ public class Player
         _utilitiesOwned++;
     }
     
-    public bool CheckIfJailed()
+    public bool CheckIfJailed(bool triggerCounter)
     {
+        if (inJail && triggerCounter)
+        {
+            _timeInJail++;
+            if (_timeInJail > 3)
+            {
+                inJail = false;
+                _timeInJail = 0;
+            }
+        }
+        
         return inJail;
     }
     
@@ -187,12 +200,12 @@ public class Player
 
     public bool CheckForGetOutOfJailCard()
     {
-        return _getOutOfJailCard;
+        return getOutOfJailCard;
     }
 
     public void ChangeGetOutOfJailCard(bool inOrOut)
     {
-        _getOutOfJailCard = inOrOut;
+        getOutOfJailCard = inOrOut;
     }
 
     

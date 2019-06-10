@@ -5,51 +5,55 @@ using UnityEngine;
 
 namespace CardScripts
 {
-    public class CardManager : MonoBehaviour
+    public static class CardManager
     {
-        public Card[] chanceDeck = new Card[8];
-        public Card[] communityChestDeck = new Card[12];
-        int _currentChanceCard;
-        int _currentCommunityChestCard;
-
-        public void Start()
+        private static Card[] _chanceDeck = new Card[9];
+        private static Card[] _communityChestDeck = new Card[13];
+        private static int _currentChanceCard;
+        private static int _currentCommunityChestCard;
+        
+        public static void SetUpCardManager()
         {
-            chanceDeck[0] = gameObject.AddComponent<MovementCards>();
-            chanceDeck[1] = gameObject.AddComponent<MovementCards>();
-            chanceDeck[2] = gameObject.AddComponent<MovementCards>();
-            chanceDeck[3] = gameObject.AddComponent<MovementCards>();
-            chanceDeck[4] = gameObject.AddComponent<MovementCards>();
-            chanceDeck[5] = gameObject.AddComponent<MoneyCards>();
-            chanceDeck[6] = gameObject.AddComponent<MoneyCards>();
-            chanceDeck[7] = gameObject.AddComponent<MoneyCards>();
-            chanceDeck[8] = gameObject.AddComponent<GetOutOfJailCard>();
+            _chanceDeck[0] = new MovementCard();
+            _chanceDeck[1] = new MovementCard();
+            _chanceDeck[2] = new MovementCard();
+            _chanceDeck[3] = new MovementCard();
+            _chanceDeck[4] = new MovementCard();
+            _chanceDeck[5] = new MoneyCard();
+            _chanceDeck[6] = new MoneyCard();
+            _chanceDeck[7] = new MoneyCard();
+            _chanceDeck[8] = new GetOutOfJailCard();
             
             //Sets up deck of chance cards
             
-            communityChestDeck[0] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[1] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[2] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[3] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[4] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[5] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[6] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[7] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[8] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[9] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[10] = gameObject.AddComponent<MoneyCards>();
-            communityChestDeck[11] = gameObject.AddComponent<MovementCards>();
-            communityChestDeck[12] = gameObject.AddComponent<GetOutOfJailCard>();
+            _communityChestDeck[0] = new MoneyCard();
+            _communityChestDeck[1] = new MoneyCard();
+            _communityChestDeck[2] = new MoneyCard();
+            _communityChestDeck[3] = new MoneyCard();
+            _communityChestDeck[4] = new MoneyCard();
+            _communityChestDeck[5] = new MoneyCard();
+            _communityChestDeck[6] = new MoneyCard();
+            _communityChestDeck[7] = new MoneyCard();
+            _communityChestDeck[8] = new MoneyCard();
+            _communityChestDeck[9] = new MoneyCard();
+            _communityChestDeck[10] = new MoneyCard();
+            _communityChestDeck[11] = new MovementCard();
+            _communityChestDeck[12] = new GetOutOfJailCard();
             
             //Sets up deck of Community Chest cards
+
+            var cardInformation = CardInformation.GetCardInformation(0);
             
             for (int n = 0; n < 8; n++)
             {
-            chanceDeck[n].SetUpCard(CardInformation.GetCardInformation(n));
+                cardInformation = CardInformation.GetCardInformation(n);
+                _chanceDeck[n].SetUpCard(cardInformation.Item1, cardInformation.Item2);
             }
             
             for (int n = 8; n < 20; n++)
             {
-            communityChestDeck[n-8].SetUpCard(CardInformation.GetCardInformation(n));
+                cardInformation = CardInformation.GetCardInformation(n);
+                _communityChestDeck[n-8].SetUpCard(cardInformation.Item1, cardInformation.Item2);
             }
             
             ShuffleChance();
@@ -57,30 +61,30 @@ namespace CardScripts
             //Shuffles decks before game starts
         }
 
-        public void ShuffleCommunityChest()
+        private static void ShuffleCommunityChest()
         {
             for (int n = 0; n < 500; n++)
             {
                 int a = Random.Range(0,13);
                 int b = Random.Range(0,13);
-                Card tempCard = communityChestDeck[a];
-                communityChestDeck[a] = communityChestDeck[b];
-                communityChestDeck[b] = tempCard;
+                Card tempCard = _communityChestDeck[a];
+                _communityChestDeck[a] = _communityChestDeck[b];
+                _communityChestDeck[b] = tempCard;
             }
         }
-        public void ShuffleChance()
+        private static void ShuffleChance()
         {
             for (int n = 0; n < 500; n++)
             {
                 int a = Random.Range(0,9);
                 int b = Random.Range(0,9);
-                Card tempCard = chanceDeck[a];
-                chanceDeck[a] = chanceDeck[b];
-                chanceDeck[b] = tempCard;
+                Card tempCard = _chanceDeck[a];
+                _chanceDeck[a] = _chanceDeck[b];
+                _chanceDeck[b] = tempCard;
             }
         }
 
-        public Card DealChance()
+        public static Card DealChance()
         {
             if (_currentChanceCard > 9)
             {
@@ -88,11 +92,10 @@ namespace CardScripts
                 _currentChanceCard = 0;
             }
             _currentChanceCard++;
-            return chanceDeck[_currentChanceCard-1];
-            
+            return _chanceDeck[_currentChanceCard-1];
         }
         
-        public Card DealCommuntiyChest()
+        public static Card DealCommunityChest()
         {
             if (_currentCommunityChestCard > 13)
             {
@@ -100,8 +103,7 @@ namespace CardScripts
                 _currentCommunityChestCard = 0;
             }
             _currentCommunityChestCard++;
-            return communityChestDeck[_currentCommunityChestCard-1];
-            
+            return _communityChestDeck[_currentCommunityChestCard-1];
         }
 
 

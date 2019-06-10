@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using CardScripts;
+using Dice;
 using PlayerSetupScripts;
 using TileScripts;
 using TileScripts.PurchasableTiles;
+using TileScripts.SpecialTiles;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -18,6 +21,8 @@ public class PopupManager : MonoBehaviour
 
     private static int _tileToBuy;
 
+    private static DieManagement _dieManagement;
+
     public static void SetUpPopupManager()
     {
         _popupBackground = GameObject.Find("PopupBackground");
@@ -27,6 +32,7 @@ public class PopupManager : MonoBehaviour
             _choiceButtons[n - 1] = GameObject.Find("Option" + n);
         }
         _popupBackground.SetActive(false);
+        _dieManagement = GameObject.Find("DieManagement").GetComponent<DieManagement>();
     }
 
     private static void ActivateChoiceButtons()
@@ -43,6 +49,7 @@ public class PopupManager : MonoBehaviour
         {
             _choiceButtons[n].GetComponent<Button>().onClick.RemoveAllListeners();
         }
+        _popupBackground.GetComponentInChildren<SpriteRenderer>().transform.localScale = new Vector3(180f, 180f, 180f);
         _popupBackground.SetActive(false);
         GameLoop.ActivateGameButtons();
     }
@@ -67,8 +74,17 @@ public class PopupManager : MonoBehaviour
     {
         GameLoop.GetCurrentPlayer().ChangeGetOutOfJailCard(false);
     }
-    
-    //choiceType key: 0 is just an okay, 1 is unowned property, 2 is get out of jail
+
+    private static void DoCardAction()
+    {
+        CardDeckTile.GetCurrentCard().DoCardAction();
+    }
+
+    private static void StartJailRoll()
+    {
+        _dieManagement.StartJailRoll();
+    }
+    //choiceType key: 0 is just an okay, 1 is unowned property, 2 is get out of jail, 3 is card to accept
     public static void MakeNewPopUp(int choiceType, int currentTile, Sprite choiceSprite)
     {
         GameLoop.DeactivateGameButtons();
@@ -98,7 +114,9 @@ public class PopupManager : MonoBehaviour
                 break;
             case 2:
                 _choiceButtons[0].GetComponentInChildren<Text>().text = "Try for Pair";
-                //some way to start checking for pair
+                _choiceButtons[0].GetComponent<Button>().onClick.AddListener(StartJailRoll);
+                _choiceButtons[0].GetComponent<Button>().onClick.AddListener(ResetPopup);
+              
                 
                 _choiceButtons[1].GetComponentInChildren<Text>().text = "Pay Fine of $50";
                 _choiceButtons[1].GetComponent<Button>().onClick.AddListener(ChargeJailFee);
@@ -116,10 +134,16 @@ public class PopupManager : MonoBehaviour
                 {
                     _choiceButtons[2].SetActive(false);
                 }
-
                 break;
-               
-            //case 2 will go here eventually, with jail selection
+            case 3:
+                _popupBackground.GetComponentInChildren<SpriteRenderer>().transform.localScale = new Vector3(43.4f, 43.4f, 43.4f);
+                _choiceButtons[0].GetComponentInChildren<Text>().text = "Okay";
+                _choiceButtons[0].GetComponent<Button>().onClick.AddListener(DoCardAction);
+                _choiceButtons[0].GetComponent<Button>().onClick.AddListener(ResetPopup);
+
+                _choiceButtons[1].SetActive(false);
+                _choiceButtons[2].SetActive(false);
+                break;
         }
 
     }

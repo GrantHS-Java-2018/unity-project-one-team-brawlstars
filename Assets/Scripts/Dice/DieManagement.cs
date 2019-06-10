@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 namespace Dice
 {
@@ -14,7 +15,8 @@ namespace Dice
        public int roll;
        public bool pair;
        private bool _readyBool;
-    
+       private bool _jailRoll;
+       
        public void DieReady()
        {
            if (!_readyBool)
@@ -27,12 +29,35 @@ namespace Dice
                _readyBool = false;
            }
        }
+
+       public void StartJailRoll()
+       {
+           _jailRoll = true;
+           GameLoop.EnableRollButton();
+       }
        
        private void RollCalculation()
        {
-           roll = num1 + num2;
-           IsPair();
-           GameLoop.ReportDieRolls(roll, pair);
+           if (!_jailRoll)
+           {
+               roll = num1 + num2;
+               IsPair();
+               GameLoop.ReportDieRolls(roll, pair);
+           }
+           else
+           {
+               IsPair();
+               if (pair)
+               {
+                   GameLoop.GetCurrentPlayer().GetOutOfJail();
+               }
+               else
+               {
+                   roll = 0;
+               }
+               GameLoop.ReportDieRolls(roll, false);
+           }
+           _jailRoll = false;
        }
     
        private void IsPair()

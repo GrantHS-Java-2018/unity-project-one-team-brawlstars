@@ -8,7 +8,7 @@ namespace TileScripts.SpecialTiles
 {
     public class FreeParkingTile : Tile
     {
-        private int _payout = 200;
+        private static int _payout = 200;
         
         public override void SetUpTile(int incomingTileIndex, String incomingTileName, Vector3 incomingTilePosition, Sprite incomingTileSprite, int[] incomingTileValues)
         {
@@ -22,7 +22,7 @@ namespace TileScripts.SpecialTiles
                 GameLoop.GetCurrentPlayer().Pay(_payout);
                 _payout = 200;
         }
-        public void AddToParkingPayout(int taxAmount)
+        public static void AddToParkingPayout(int taxAmount)
         {
             _payout += taxAmount;
         }

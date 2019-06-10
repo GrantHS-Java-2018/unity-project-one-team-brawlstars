@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
-        StartCoroutine(GameLoop.GetCurrentPlayer().MoveCoroutine(GameLoop.GetCurrentDieSum())); 
+        StartCoroutine(GameLoop.GetCurrentPlayer().MoveCoroutine(GameLoop.GetCurrentDieSum()));  
     }
 
     public void SendPlayer(int waypoint)

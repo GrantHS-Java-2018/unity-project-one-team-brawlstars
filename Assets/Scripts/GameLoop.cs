@@ -80,11 +80,10 @@ public static class GameLoop
         
         private static void StartTurn(Player nextPlayer)
         {
-                /*_endTurnButton.interactable = false;*/ //uncomment this when we have a way to determine if a turn is over and reactivate the end turn button
                 _currentDieSum = 0;
                 _pairCount = 0;
                 _currentPlayer = nextPlayer;
-                if (!_currentPlayer.CheckIfJailed())
+                if (!_currentPlayer.CheckIfJailed(true))
                 {
                         _gameButtons[0].interactable = true;
                 }
@@ -96,6 +95,12 @@ public static class GameLoop
                 _actionPromptText.text = "Player " + nextPlayer.GetNumber() + "'s turn";
         }
 
+        public static void EnableRollButton()
+        {
+                _gameButtons[0].interactable = true;
+                Debug.Log("Roll Button Enabled");
+        }
+        
         public static void EndTurn()
         {
                 StartTurn(GetNextPlayer());
@@ -119,6 +124,11 @@ public static class GameLoop
                 for (int n = 0; n < 2; n++)
                 {
                         _gameButtonsOn[n] = _gameButtons[n].IsInteractable();
+                }
+
+                if (_currentPlayer.CheckIfJailed(false))
+                {
+                        _gameButtonsOn[0] = true;
                 }
                 
                 for (int n = 0; n < 2; n++)
