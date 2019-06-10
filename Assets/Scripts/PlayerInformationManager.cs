@@ -45,6 +45,7 @@ public class PlayerInformationManager : MonoBehaviour
             _playerInformationManager._jailCardTexts[n] =
                 _playerInformationManager._playerInfoGameObjects[n].transform.Find("GetOutOfJailCard").GetComponent<Text>();
         }
+        UpdatePlayerInfo();
     }
 
     public static void UpdatePlayerInfo()
@@ -58,6 +59,7 @@ public class PlayerInformationManager : MonoBehaviour
             bool playerJailCard = PlayerManager.GetPlayers()[n].CheckForGetOutOfJailCard();
 
             _playerInformationManager._moneyTexts[n].text = "Money: " + playerMoney;
+            
             _playerInformationManager._inJailTexts[n].text = "In Jail: " + playerInJail;
             _playerInformationManager._jailCardTexts[n].text = "Out of Jail Card: " + playerJailCard;
         }

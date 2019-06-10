@@ -44,13 +44,13 @@ namespace CardScripts
 
             (int, Sprite) cardInformation;
 
-            for (int n = 0; n < 8; n++)
+            for (int n = 0; n < 9; n++)
             {
                 cardInformation = CardInformation.GetCardInformation(n);
                 _chanceDeck[n].SetUpCard(cardInformation.Item1, cardInformation.Item2);
             }
             
-            for (int n = 8; n < 20; n++)
+            for (int n = 8; n < 21; n++)
             {
                 cardInformation = CardInformation.GetCardInformation(n);
                 _communityChestDeck[n-8].SetUpCard(cardInformation.Item1, cardInformation.Item2);
