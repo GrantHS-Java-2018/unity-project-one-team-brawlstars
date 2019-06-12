@@ -8,18 +8,18 @@ namespace CardScripts
 {
     public class MoneyCard : Card
     {
-        private int cardMoneyChange;
+        private int _cardMoneyChange;
         public override void SetUpCard(int incomingCardValue, Sprite incomingCardSprite)
         {
-            cardMoneyChange = incomingCardValue;
+            _cardMoneyChange = incomingCardValue;
             CardSprite = incomingCardSprite;
         }
         public override void DoCardAction()
         {
-            GameLoop.GetCurrentPlayer().Pay(cardMoneyChange);
-            if (cardMoneyChange < 0)
+            GameLoop.GetCurrentPlayer().Pay(_cardMoneyChange);
+            if (_cardMoneyChange < 0)
             {
-                FreeParkingTile.AddToParkingPayout(-cardMoneyChange);
+                FreeParkingTile.AddToParkingPayout(-_cardMoneyChange);
             }
             //Runs method to change players money
         }

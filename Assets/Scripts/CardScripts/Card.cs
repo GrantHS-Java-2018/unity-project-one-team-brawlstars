@@ -15,6 +15,7 @@ namespace CardScripts
         public Sprite GetCardSprite()
         {
             return CardSprite;
+        //Will return card sprite in order to display in the game
         }
     }
 }
